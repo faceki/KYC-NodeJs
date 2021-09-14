@@ -1,0 +1,93 @@
+/***********start***********/
+@media screen and (max-width:767px){
+body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #111;
+    background-color: #fff;
+}
+.navbar-brand {
+    float: right;
+    line-height: 45px;
+    height: auto;
+    padding: 15px 0px;
+}
+.facescane img {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 85px;
+    position: relative;
+    bottom: 96px;
+    margin-bottom: 0 !important;
+}
+.padding{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.face-scane .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.cemra2 img {
+    width: 70px;
+    position: relative;
+    bottom: 140px;
+    margin: 0 auto;
+    display: table;
+}
+.cemra2{
+	position: relative;
+}
+.cemra2 h2 {
+    position: absolute;
+    top: -55px;
+    margin-top: 0;
+    font-size: 15px;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin-bottom: 0;
+    color: #fff;
+}
+.flip-camera {
+    display: block;
+    position: relative;
+    bottom: 20px;
+    left: auto;
+    font-size: 11px;
+    color: #fff;
+    text-align: right;
+    right: 63px;
+}
+.kyc-result {
+    text-align: center;
+    width: auto;
+    border: none;
+    margin: 0 auto;
+    display: block;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.result-title h1 {
+    font-size: 30px;
+}
+.user-signup p::before,
+.user-signup p::after {
+    display: none;
+}
+.signup-btn{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.id-card .biometric-login {
+    margin-bottom: 0px;
+    margin-top: 0;
+}
+.login p::before,
+.login p::after{
+    display: none;
+}
+}
+
+/**********end*********/
