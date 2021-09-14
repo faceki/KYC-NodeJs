@@ -83,10 +83,10 @@ let imageData = ''
 function frontTakeASnap(vid){
     //const canvas = document.createElement('canvas');
     let canvas = document.querySelector("#canvas");
-    const ctx = canvas.getContext('2d'); 
+    const ctx = canvas.getContext('2d');
     canvas.width = vid.videoWidth;
     canvas.height = vid.videoHeight;
-    ctx.drawImage(vid, 0,0); 
+    ctx.drawImage(vid, 0,0);
     imageData = canvas.toDataURL('image/jpeg', 1.0)
     localStorage.setItem("id_card_image",imageData);
     localStorage.setItem("front_img",imageData);
@@ -94,36 +94,36 @@ function frontTakeASnap(vid){
         localStorage.setItem("back_img",imageData);
     }
     return new Promise((res, rej)=>{
-        canvas.toBlob(res, 'image/jpeg'); 
+        canvas.toBlob(res, 'image/jpeg');
     });
 }
 
 function backTakeASnap(vid){
     //const canvas = document.createElement('canvas');
     let canvas = document.querySelector("#canvas");
-    const ctx = canvas.getContext('2d'); 
+    const ctx = canvas.getContext('2d');
     canvas.width = vid.videoWidth;
     canvas.height = vid.videoHeight;
-    ctx.drawImage(vid, 0,0); 
+    ctx.drawImage(vid, 0,0);
     imageData = canvas.toDataURL('image/jpeg', 1.0)
     localStorage.setItem("id_card_back_image",imageData);
     localStorage.setItem("back_img",imageData);
     return new Promise((res, rej)=>{
-        canvas.toBlob(res, 'image/jpeg'); 
+        canvas.toBlob(res, 'image/jpeg');
     });
 }
 
 function selfieTakeASnap(vid){
     //const canvas = document.createElement('canvas');
     let canvas = document.querySelector("#canvas");
-    const ctx = canvas.getContext('2d'); 
+    const ctx = canvas.getContext('2d');
     canvas.width = vid.videoWidth;
     canvas.height = vid.videoHeight;
-    ctx.drawImage(vid, 0,0); 
+    ctx.drawImage(vid, 0,0);
     imageData = canvas.toDataURL('image/jpeg', 1.0)
     localStorage.setItem("selfie_image",imageData);
     return new Promise((res, rej)=>{
-        canvas.toBlob(res, 'image/jpeg'); 
+        canvas.toBlob(res, 'image/jpeg');
     });
 }
 
@@ -138,7 +138,7 @@ function callApi(img_type){
 
         const BASE_URL = "https://app.faceki.com/";
         data = JSON.stringify({
-            client_id:"af7d4790-04a9-11ec-aecf-1dca4d5eaaf0",
+            client_id:"68bc3750-1474-11ec-b791-31084c6a9e50",
             email:"demo@faceki.com",
         })
         fetch(BASE_URL+'getToken', {
@@ -153,7 +153,7 @@ function callApi(img_type){
         }).then(function(res){
             localStorage.setItem("auth_token", res.token);
             document.getElementById('capture').style.display = "none";
-            video.pause(); 
+            video.pause();
             frontTakeASnap(video).then(blob =>{
                 // localStorage.setItem("front_img", blob);
             });
@@ -166,18 +166,18 @@ function callApi(img_type){
             }
         });
 
-        
+
 
     }else if (img_type == 'back') {
         document.getElementById('capture').style.display = "none";
-        video.pause(); 
+        video.pause();
         backTakeASnap(video).then(blob =>{
             let front_img = localStorage.getItem('front_img');
             if (front_img == '' || front_img == null) {
                 alert('Please take Id Card front image first!!');
                 window.location.replace('/idscane-front');
             }
-            //localStorage.setItem("back_img", blob);    
+            //localStorage.setItem("back_img", blob);
         });
         window.location.replace('/take-selfie');
 
@@ -185,18 +185,18 @@ function callApi(img_type){
 
         document.getElementById('loader').style.display = "block";
         document.getElementById('noFace').style.display = "none";
-        // document.getElementById('HideColors').style.display = "none";    
+        // document.getElementById('HideColors').style.display = "none";
         document.getElementById('video').style.display = "none";
         document.getElementById('show-hide-dekstop').style.display = "none";
         document.getElementById('show-hide-mobile').style.display = "none";
 
         document.getElementById('capture').style.display = "none";
-        video.pause(); 
+        video.pause();
         selfieTakeASnap(video).then(blob =>{
             let front_img = localStorage.getItem('front_img');
             let back_img = localStorage.getItem('back_img');
             let selfie_image = localStorage.getItem('selfie_image');
-            
+
             if (front_img == '' || front_img == null) {
                 alert('Please take Id Card front image first!!');
                 window.location.replace('/idscane-front');
@@ -208,15 +208,15 @@ function callApi(img_type){
             }
 
             var jpegFile64 = front_img.replace(/^data:image\/(png|jpeg);base64,/, "");
-            var jpegBlob = base64ToBlob(jpegFile64, 'image/jpeg');  
+            var jpegBlob = base64ToBlob(jpegFile64, 'image/jpeg');
             const frontImge = new File([jpegBlob], "filename-front.jpeg",{ type: 'image/jpeg' });
 
             var bjpegFile64 = back_img.replace(/^data:image\/(png|jpeg);base64,/, "");
-            var bjpegBlob = base64ToBlob(bjpegFile64, 'image/jpeg');  
+            var bjpegBlob = base64ToBlob(bjpegFile64, 'image/jpeg');
             const backImg = new File([bjpegBlob], "filename-back.jpeg",{ type: 'image/jpeg' });
 
             var sjpegFile64 = selfie_image.replace(/^data:image\/(png|jpeg);base64,/, "");
-            var sjpegBlob = base64ToBlob(sjpegFile64, 'image/jpeg');  
+            var sjpegBlob = base64ToBlob(sjpegFile64, 'image/jpeg');
             const selfieImg = new File([sjpegBlob], "filename-selfie.jpeg",{ type: 'image/jpeg' });
 
             //const file = document.querySelector('#fileInput').files[0];
@@ -226,7 +226,7 @@ function callApi(img_type){
     }
 }
 
-function base64ToBlob(base64, mime) 
+function base64ToBlob(base64, mime)
 {
     mime = mime || '';
     var sliceSize = 1024;
@@ -258,7 +258,7 @@ function sendImgeToKyc(front_file,back_file,file_img) {
     data_auth.append('doc_back_image', back_file);
     data_auth.append('selfie_image', file_img);
     const req = new XMLHttpRequest();
-    
+
     let auth_token = localStorage.getItem('auth_token');
 
     if (auth_token == '') {
@@ -299,7 +299,7 @@ function sendImgeToKyc(front_file,back_file,file_img) {
                         showAlert(resp.error.message);
                         return;
                     }
-                }             
+                }
             }else {
                 showAlert(resp.message);
             }
@@ -318,11 +318,11 @@ function showAlert(msg){
 }
 
 function resetCamUI(){
-    video.play(); 
+    video.play();
     messageOne.textContent = '';
      setTimeout(function(){
         location.reload();
-    }, 1000)         
+    }, 1000)
 }
 
 

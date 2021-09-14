@@ -78,15 +78,15 @@ let imageData = ''
 
 function takeASnap(vid){
     const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d'); 
+    const ctx = canvas.getContext('2d');
     canvas.width = vid.videoWidth;
     canvas.height = vid.videoHeight;
-    ctx.drawImage(vid, 0,0); 
+    ctx.drawImage(vid, 0,0);
     imageData = canvas.toDataURL('image/jpeg', 1.0)
     localStorage.setItem("id_card_back_image",imageData);
     localStorage.setItem("back_img",imageData);
     return new Promise((res, rej)=>{
-        canvas.toBlob(res, 'image/jpeg'); 
+        canvas.toBlob(res, 'image/jpeg');
     });
 }
 
@@ -101,7 +101,7 @@ function callApi(img_type){
 
         const BASE_URL = "https://app.faceki.com/";
         data = JSON.stringify({
-            client_id:"af7d4790-04a9-11ec-aecf-1dca4d5eaaf0",
+            client_id:"68bc3750-1474-11ec-b791-31084c6a9e50",
             email:"demo@faceki.com",
         })
         fetch(BASE_URL+'getToken', {
@@ -118,7 +118,7 @@ function callApi(img_type){
         });
 
         document.getElementById('capture').style.display = "none";
-        video.pause(); 
+        video.pause();
         takeASnap(video).then(blob =>{
             localStorage.setItem("front_img", blob);
         });
@@ -127,20 +127,20 @@ function callApi(img_type){
 
     }else if (img_type == 'back') {
         document.getElementById('capture').style.display = "none";
-        video.pause(); 
+        video.pause();
         takeASnap(video).then(blob =>{
             let front_img = localStorage.getItem('front_img');
             if (front_img == '' || front_img == null) {
                 alert('Please take Id Card front image first!!');
                 window.location.replace('/idscane-front');
             }
-            // localStorage.setItem("back_img", blob);    
+            // localStorage.setItem("back_img", blob);
         });
         window.location.replace('/take-selfie');
 
     }else if (img_type == 'selfi') {
         document.getElementById('capture').style.display = "none";
-        video.pause(); 
+        video.pause();
         takeASnap(video).then(blob =>{
             let front_img = localStorage.getItem('front_img');
             let back_img = localStorage.getItem('back_img');
@@ -166,7 +166,7 @@ function sendImgeToKyc(front_file,file_img) {
     data_auth.append('image', front_file);
     data_auth.append('image', file_img);
     const req = new XMLHttpRequest();
-    
+
     let auth_token = localStorage.getItem('auth_token');
 
     if (auth_token == '') {
@@ -211,7 +211,7 @@ function showAlert(msg){
 }
 
 function resetCamUI(){
-    video.play(); 
+    video.play();
     document.getElementById('capture').style.display = "block";
     messageOne.textContent = '';
 }
