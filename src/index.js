@@ -74,6 +74,12 @@ app.get('/take-selfie',(req, res)=>{
 app.get('/kyc-result',(req, res)=>{
     res.render('kyc-result')
 })
+app.get('/kyc-success',(req, res)=>{
+    res.render('kyc-success')
+})
+app.get('/kyc-error',(req, res)=>{
+    res.render('kyc-error')
+})
 app.listen(port,()=>{
     console.log('Server is up on port '+ port)
 })
