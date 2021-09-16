@@ -303,6 +303,7 @@ function sendImgeToKyc(front_file,back_file,file_img) {
                 }             
             }else {
                 showAlert(resp.message);
+                window.location.replace('/kyc-error');
             }
         }
     };
