@@ -104,6 +104,19 @@ app.get('/faceki-request-a-sign-in-pending',(req, res)=>{
         name: 'Faceki'
     })
 })
+app.get('/dashboard',async (req, res)=>{
+    try{
+        var user = await User.findByFaceId(req.query.id)
+        res.render('faceki-sign-in-complete',{
+            name: user.user.name
+        })
+    }catch (e){
+        res.render('error',{
+            title:'Some error Occured',
+            name: 'Faceki'
+        })
+    }
+})
 app.listen(port,()=>{
     console.log('Server is up on port '+ port)
 })
