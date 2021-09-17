@@ -80,6 +80,30 @@ app.get('/kyc-success',(req, res)=>{
 app.get('/kyc-error',(req, res)=>{
     res.render('kyc-error')
 })
+app.get('/faceki-sign-in',(req, res)=>{
+    res.render('faceki-sign-in',{
+        title:'Faceki Login',
+        name: 'Faceki'
+    })
+})
+app.get('/faceki-sign-up',(req, res)=>{
+    res.render('faceki-sign-up',{
+        title:'Faceki Signup',
+        name: 'Faceki'
+    })
+})
+app.get('/faceki-request-a-sign-in',(req, res)=>{
+    res.render('faceki-request-a-sign-in',{
+        title:'Request Sigin',
+        name: 'Faceki'
+    })
+})
+app.get('/faceki-request-a-sign-in-pending',(req, res)=>{
+    res.render('faceki-request-a-sign-in-pending',{
+        title:'Request Sigin',
+        name: 'Faceki'
+    })
+})
 app.listen(port,()=>{
     console.log('Server is up on port '+ port)
 })

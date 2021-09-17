@@ -1,4 +1,5 @@
 const baseUrl = window.location.origin+"/";
+const BASE_URL = "https://app.faceki.com/";
 var video = document.getElementById('video');
 const messageOne = document.querySelector('#message-1')
 let token = ''
@@ -57,7 +58,7 @@ function callApi(){
         let type = localStorage.getItem("type")
     document.getElementById('loader').style.display = "block";
     document.getElementById('video').style.display = "none";
-    // document.getElementById('Faceframe').style.display = "none";
+    document.getElementById('Faceframe').style.display = "none";
     document.getElementById('capture').style.display = "none";
     takeASnap(video).then(blob =>{
         const file = new File([blob], "filename.jpeg");
@@ -157,12 +158,11 @@ function showAlert(msg){
 function resetCamUI(){
     document.getElementById('loader').style.display = "none";
     document.getElementById('video').style.display = "block";
-    // document.getElementById('Faceframe').style.display = "block";
+    document.getElementById('Faceframe').style.display = "block";
     document.getElementById('capture').style.display = "block";
 }
 
 function AuthenticateUser(){
-    alert("kdd");
    /* if(localStorage.getItem("type")){
             type = localStorage.getItem("type")
       }*/
@@ -172,7 +172,7 @@ function AuthenticateUser(){
     var data = JSON.stringify({
         image: imageData
     });
-    var url = baseUrl+"login"
+    var url = BASE_URL+"verify"
     if(type == 'signup'){
         var mobile_number = localStorage.getItem("mobile_number")
         const name = localStorage.getItem("firstname")+" "+localStorage.getItem("lastname")
@@ -183,23 +183,19 @@ function AuthenticateUser(){
             email:email_id,
             mobile_number:mobile_number,
             name: name
-            //client_id:"68bc3750-1474-11ec-b791-31084c6a9e50"
+            //client_id:"af7d4790-04a9-11ec-aecf-1dca4d5eaaf0"
         });
-        url = baseUrl+"enroll"
+        url = BASE_URL+"enroll"
     }
     if(token && type!='signup'){
-        // url = baseUrl+"request-login"
-        url = "https://app.faceki.com/login"
+        url = BASE_URL+"request-login"
         data = JSON.stringify({
             image: imageData ,
             token: token
         });
     }
-
-    alert("dkkdkd");
     messageOne.textContent = 'Please wait we are verifying your identity...'
-    if(1){
-        url = "https://app.faceki.com/login";
+    if(type){
             fetch(url, {
                             method: "POST",
                             headers: {
@@ -265,3 +261,4 @@ function resetCam(camView,video){
         track.stop();
     })
 }
+

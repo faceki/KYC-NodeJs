@@ -1,9 +1,10 @@
 const BASE_URL = "https://app.faceki.com/";
 //const BASE_URL = "http://localhost:3000/";
 function getToken(client_id, email, type){
+    debugger;
     data = JSON.stringify({
-        client_id:client_id,
-        email:email,
+        client_id:"68bc3750-1474-11ec-b791-31084c6a9e50",
+        email:"zain@faceki.com",
     })
     fetch(BASE_URL+'getToken', {
         method: "POST",
@@ -21,28 +22,17 @@ function getToken(client_id, email, type){
         }else if(type == 'signup'){
             showFacekiSignUpWindow(type,res.token)
         }else if(type=='request-login'){
+            debugger
             hanshakeSocketConnection(res.token)
         }
     })
 }
 function showFacekiLoginWindow(type,token){
-    /*var left = (screen.width/2)-(440/2);
-    var top = (screen.height/2)-(750/2);
-    localStorage.setItem("type",type)
-    url = BASE_URL+"faceki-sign-in/?auth="+token
-    newwindow=window.open(url,'name','height=750,width=440, top= '+top+', left='+left );
-    if (window.focus) {newwindow.focus()}*/
-    url = BASE_URL+"faceki-sign-in/?route=login&auth="+token
+    url = window.location.origin+"/faceki-sign-in/?route=login&auth="+token
     window.location.replace(url);
 }
 function showFacekiSignUpWindow(type,token){
-    /*var left = (screen.width/2)-(440/2);
-    var top = (screen.height/2)-(750/2);
-    localStorage.setItem("type",type)
-    url = BASE_URL+"faceki-sign-up/?auth="+token
-    newwindow=window.open(url,'name','height=750,width=440, top= '+top+', left='+left );
-    if (window.focus) {newwindow.focus()}*/
-    url = BASE_URL+"faceki-sign-up/?route=signup&auth="+token
+    url = window.location.origin+"/faceki-sign-up/?route=signup&auth="+token
     window.location.replace(url);
 }
 
@@ -92,7 +82,7 @@ function hanshakeSocketConnection(authToken){
                     console.log(e)
                 })
             }else if (obj.op == 'authdone') {
-                window.location.replace(BASE_URL+"dashboard?id=" + obj.face_id);
+                window.location.replace(window.location.origin+"/dashboard?id=" + obj.face_id);
                 ws.close();
             }
         };
