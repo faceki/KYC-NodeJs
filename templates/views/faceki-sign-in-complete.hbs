@@ -197,9 +197,13 @@
       </div>
       <a href="/"><img class="group-85-C61RwL anima-smart-layers-pointers" src="/image/group-85-1@1x.png"/></a>
       <div class="balance-C61RwL">
-        <div class="total-balance-76THyG">Welcome<br />{{name}}</div>
+        <div class="total-balance-76THyG">Welcome<br /><span id="name_field"></span></div>
       </div>
       <img class="tick-C61RwL" src="/image/tick@1x.png" />
     </div>
   </body>
+  <script type="text/javascript">
+    const name_field = localStorage.getItem("firstname")+" "+localStorage.getItem("lastname")
+    document.getElementById('name_field').innerHTML =name_field;
+  </script>
 </html>

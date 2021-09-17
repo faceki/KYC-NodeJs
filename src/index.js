@@ -106,9 +106,9 @@ app.get('/faceki-request-a-sign-in-pending',(req, res)=>{
 })
 app.get('/dashboard',async (req, res)=>{
     try{
-        var user = await User.findByFaceId(req.query.id)
+        //var user = await User.findByFaceId(req.query.id)
         res.render('faceki-sign-in-complete',{
-            name: user.user.name
+            title: 'success'
         })
     }catch (e){
         res.render('error',{

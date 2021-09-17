@@ -215,11 +215,11 @@ function AuthenticateUser(){
                             if(res.data.face_id){
                                 id = res.data.face_id
                             }
-                            localStorage.setItem("firstname", '');
-                            localStorage.setItem("lastname", '');
-                            localStorage.setItem("email_id", '');
-                            localStorage.setItem("mobile_number",'');
-                            window.location.replace(BASE_URL+"dashboard?id=" + id);
+                            //localStorage.setItem("firstname", '');
+                            //localStorage.setItem("lastname", '');
+                            //localStorage.setItem("email_id", '');
+                            //localStorage.setItem("mobile_number",'');
+                            window.location.replace(baseUrl+"dashboard?id=" + id);
                             /*if (window.opener) {
                                 // send them to the opening window
                                 window.opener.postMessage(id);
