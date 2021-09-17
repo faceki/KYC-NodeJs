@@ -117,6 +117,34 @@ app.get('/dashboard',async (req, res)=>{
         })
     }
 })
+app.get('/lowquality',(req, res)=>{
+    res.render('lowquality',{
+        title: 'Low Quality Photo',
+        desc:"Quality of photo is not good please try again..",
+        name:'Faceki'
+    })
+})
+app.get('/loginfailed',(req, res)=>{
+    res.render('error',{
+        title: 'Login Failed',
+        desc:"You are not Authenticated to login into the account.",
+        name:'Faceki'
+    })
+})
+app.get('/facedistance',(req, res)=>{
+    res.render('facedistance',{
+        title: 'Face is far from camera',
+        desc:"Bring your eye more closer to the camera.",
+        name:'Faceki'
+    })
+})
+app.get('/error',(req, res)=>{
+    res.render('error',{
+        title: 'Not live photo',
+        desc:"You are not Authenticated to login into the account.",
+        name:'Faceki'
+    })
+})
 app.listen(port,()=>{
     console.log('Server is up on port '+ port)
 })
