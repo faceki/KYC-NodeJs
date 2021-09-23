@@ -77,6 +77,9 @@ app.get('/kyc-result',(req, res)=>{
 app.get('/kyc-success',(req, res)=>{
     res.render('kyc-success')
 })
+app.get('/kyc-declined',(req, res)=>{
+    res.render('kyc-declined')
+})
 app.get('/kyc-error',(req, res)=>{
     res.render('kyc-error')
 })

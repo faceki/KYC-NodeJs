@@ -303,7 +303,11 @@ function sendImgeToKyc(front_file,back_file,file_img) {
                 }             
             }else {
                 showAlert(resp.message);
-                window.location.replace('/kyc-error');
+                if(resp.message=='Face not matched!'){
+                  window.location.replace('/kyc-declined');
+                }else{
+                  window.location.replace('/kyc-error');
+                }
             }
         }
     };
