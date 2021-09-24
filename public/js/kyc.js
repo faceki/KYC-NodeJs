@@ -249,7 +249,7 @@ function base64ToBlob(base64, mime)
     return new Blob(byteArrays, {type: mime});
 }
 
-const kycurl = 'https://app.faceki.com/kyc-verification';
+const kycurl = 'https://app.faceki.com/v2/kyc-verification';
 
 function sendImgeToKyc(front_file,back_file,file_img) {
 
@@ -303,7 +303,7 @@ function sendImgeToKyc(front_file,back_file,file_img) {
                 }             
             }else {
                 showAlert(resp.message);
-                if(resp.message=='Face not matched!'){
+                if(resp.message=='Face not matched!' || resp.message=='Photocopy document not allowed.'){
                   window.location.replace('/kyc-declined');
                 }else{
                   window.location.replace('/kyc-error');
