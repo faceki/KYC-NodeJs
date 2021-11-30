@@ -1,0 +1,390 @@
+/* screen - faceki-sign-up-1 */
+
+.border-class-1 {
+  border: 1px solid var(--ebony-clay);
+}
+.faceki-sign-up-1 {
+  background-color: var(--white);
+  height: 100vh;
+  margin: 0px;
+  min-height: 823px;
+  min-width: 414px;
+  position: relative;
+  width: 100%;
+}
+.faceki-sign-up-1 .balance-C61RwL {
+  background-color: transparent;
+  height: 33px;
+  left: 30px;
+  position: absolute;
+  top: 33px;
+  width: 82px;
+}
+.faceki-sign-up-1 .bg-C61RwL {
+  background-color: transparent;
+  height: 98px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+.faceki-sign-up-1 .e-mail-QE45bn {
+  background-color: transparent;
+  bottom: calc(19.42% - 5px);
+  height: 24px;
+  left: calc(4.51% - 3px);
+  letter-spacing: 0.72px;
+  line-height: 52px;
+  opacity: 0.7;
+  position: absolute;
+  text-align: left;
+  white-space: nowrap;
+  width: 64px;
+}
+.faceki-sign-up-1 .enter-your--name-name-QE45bn {
+  background-color: transparent;
+  border: 0;
+  height: 35px;
+  letter-spacing: 0.00px;
+  line-height: 25px;
+  padding: 0;
+  position: absolute;
+  resize: none;
+  right: calc(14.94% - 55px);
+  text-align: left;
+  top: calc(10.76% - 4px);
+  white-space: nowrap;
+  width: 367px;
+}
+.faceki-sign-up-1 .enter-your--name-name-QE45bn::placeholder {
+  color: rgba(158,160,174,0.6);
+}
+.faceki-sign-up-1 .enter-your--name-name-xu4ZJS {
+  background-color: transparent;
+  border: 0;
+  height: 35px;
+  left: 15px;
+  letter-spacing: 0.00px;
+  line-height: 25px;
+  padding: 0;
+  position: absolute;
+  resize: none;
+  text-align: left;
+  top: calc(39.74% - 14px);
+  white-space: nowrap;
+  width: calc(100.00% - 22px);
+}
+.faceki-sign-up-1 .enter-your--name-name-xu4ZJS::placeholder {
+  color: rgba(158,160,174,0.6);
+}
+.faceki-sign-up-1 .enter-your-your-email-QE45bn {
+  background-color: transparent;
+  border: 0;
+  height: 35px;
+  letter-spacing: 0.00px;
+  line-height: 25px;
+  padding: 0;
+  position: absolute;
+  resize: none;
+  right: calc(32.33% - 117px);
+  text-align: left;
+  top: 381px;
+  white-space: nowrap;
+  width: 362px;
+}
+.faceki-sign-up-1 .enter-your-your-email-QE45bn::placeholder {
+  color: rgba(158,160,174,0.6);
+}
+.faceki-sign-up-1 .field-bg-Mv68n8 {
+  background-color: var(--cultured-pearl);
+  border-radius: 8px;
+  height: 63px;
+  left: calc(50.00% - 193px);
+  opacity: 0.4;
+  position: absolute;
+  top: 249px;
+  width: 386px;
+}
+.faceki-sign-up-1 .field-bg-QE45bn {
+  background-color: var(--cultured-pearl);
+  border-radius: 8px;
+  height: 63px;
+  left: calc(50.00% - 193px);
+  opacity: 0.4;
+  position: absolute;
+  top: 362px;
+  width: 386px;
+}
+.faceki-sign-up-1 .field-bg-hsOOLU {
+  background-color: var(--cultured-pearl);
+  border-radius: 7px;
+  height: 64px;
+  left: calc(50.00% - 193px);
+  opacity: 0.4;
+  position: absolute;
+  top: 135px;
+  width: 386px;
+}
+.faceki-sign-up-1 .field-bg-xu4ZJS {
+  background-color: var(--cultured-pearl);
+  border-radius: 7px;
+  height: 64px;
+  left: calc(50.00% - 193px);
+  opacity: 0.4;
+  position: absolute;
+  top: 23px;
+  width: 386px;
+}
+.faceki-sign-up-1 .first-name-QE45bn {
+  background-color: transparent;
+  height: 24px;
+  left: 3.76%;
+  letter-spacing: 0.72px;
+  line-height: 52px;
+  opacity: 0.7;
+  position: absolute;
+  text-align: left;
+  top: -15px;
+  white-space: nowrap;
+  width: 26.65%;
+}
+.faceki-sign-up-1 .frame-jQ4qbJ {
+  background-color: transparent;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 35px;
+}
+.faceki-sign-up-1 .group-111-C61RwL {
+  background-color: transparent;
+  height: 71px;
+  left: calc(48.41% - 187px);
+  pointer-events: auto;
+  position: absolute;
+  top: 622px;
+  transition: all 0.2s ease;
+  width: 387px;
+}
+.faceki-sign-up-1 .group-111-C61RwL:hover {
+
+transform: scale(1.1);
+}
+.faceki-sign-up-1 .group-115-C61RwL {
+  background-color: transparent;
+  height: 425px;
+  left: calc(48.83% - 189px);
+  position: absolute;
+  top: 146px;
+  width: 386px;
+}
+.faceki-sign-up-1 .group-50-xbgdn2 {
+  background-color: transparent;
+  height: 9px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 9px;
+}
+.faceki-sign-up-1 .group-51-xbgdn2 {
+  background-color: transparent;
+  bottom: 0px;
+  height: 9px;
+  left: 0px;
+  position: absolute;
+  width: 9px;
+}
+.faceki-sign-up-1 .group-52-xbgdn2 {
+  background-color: transparent;
+  bottom: 0px;
+  height: 9px;
+  position: absolute;
+  right: 0px;
+  width: 9px;
+}
+.faceki-sign-up-1 .group-53-xbgdn2 {
+  background-color: transparent;
+  height: 9px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 9px;
+}
+.faceki-sign-up-1 .group-83-C61RwL {
+  background-color: transparent;
+  height: 35px;
+  position: absolute;
+  right: 26px;
+  top: 32px;
+  width: 140px;
+}
+.faceki-sign-up-1 .last-name-QE45bn {
+  background-color: transparent;
+  height: 24px;
+  left: calc(5.06% - 5px);
+  letter-spacing: 0.72px;
+  line-height: 52px;
+  opacity: 0.7;
+  position: absolute;
+  text-align: left;
+  top: calc(24.12% - 6px);
+  white-space: nowrap;
+  width: 99px;
+}
+.faceki-sign-up-1 .path-103-jQ4qbJ {
+  background-color: transparent;
+  height: calc(100.00% - 7px);
+  left: 7px;
+  position: absolute;
+  top: 4px;
+  width: 23px;
+}
+.faceki-sign-up-1 .path-104-jQ4qbJ {
+  background-color: transparent;
+  height: calc(100.00% - 7px);
+  left: calc(22.01% - 6px);
+  position: absolute;
+  top: 4px;
+  width: 28px;
+}
+.faceki-sign-up-1 .path-105-jQ4qbJ {
+  background-color: transparent;
+  height: calc(100.00% - 6px);
+  left: calc(45.99% - 12px);
+  position: absolute;
+  top: 3px;
+  width: 25px;
+}
+.faceki-sign-up-1 .path-106-jQ4qbJ {
+  background-color: transparent;
+  height: calc(100.00% - 7px);
+  position: absolute;
+  right: calc(32.23% - 6px);
+  top: 4px;
+  width: 19px;
+}
+.faceki-sign-up-1 .path-107-jQ4qbJ {
+  background-color: transparent;
+  height: calc(100.00% - 7px);
+  position: absolute;
+  right: 10px;
+  top: 4px;
+  width: 24px;
+}
+.faceki-sign-up-1 .path-108-a4BkZO {
+  background-color: transparent;
+  height: calc(100.00% + 2px);
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: calc(100.00% + 2px);
+}
+.faceki-sign-up-1 .path-109-oPVaBz {
+  background-color: transparent;
+  height: calc(100.00% + 2px);
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: calc(100.00% + 2px);
+}
+.faceki-sign-up-1 .path-110-jCJyme {
+  background-color: transparent;
+  height: calc(100.00% + 2px);
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: calc(100.00% + 2px);
+}
+.faceki-sign-up-1 .path-111-G3xBub {
+  background-color: transparent;
+  height: calc(100.00% + 2px);
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: calc(100.00% + 2px);
+}
+.faceki-sign-up-1 .path-112-jQ4qbJ {
+  background-color: transparent;
+  height: calc(100.00% - 7px);
+  position: absolute;
+  right: 0px;
+  top: 4px;
+  width: 7px;
+}
+.faceki-sign-up-1 .telephone-number-QE45bn {
+  background-color: transparent;
+  bottom: calc(48.03% - 12px);
+  height: 24px;
+  left: calc(6.78% - 12px);
+  letter-spacing: 0.72px;
+  line-height: 52px;
+  opacity: 0.7;
+  position: absolute;
+  text-align: left;
+  white-space: nowrap;
+  width: 172px;
+}
+.faceki-sign-up-1 .total-balance-76THyG {
+  background-color: transparent;
+  height: 35px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 25px;
+  position: absolute;
+  text-align: center;
+  top: 12.12%;
+  white-space: nowrap;
+  width: 102.44%;
+}
+.faceki-sign-up-1 .x973xxxxxxx-xxxxxxxxxx-QE45bn {
+  background-color: transparent;
+  border: 0;
+  height: 35px;
+  left: calc(38.84% - 136px);
+  letter-spacing: 0.00px;
+  line-height: 25px;
+  padding: 0;
+  position: absolute;
+  resize: none;
+  text-align: left;
+  top: 268px;
+  white-space: nowrap;
+  width: 349px;
+}
+.faceki-sign-up-1 .x973xxxxxxx-xxxxxxxxxx-QE45bn::placeholder {
+  color: rgba(158,160,174,0.6);
+}
+.lato-normal-ebony-clay-18px {
+  color: var(--ebony-clay);
+  font-family: 'Lato', Helvetica, Arial, serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+}
+.roboto-light-santas-gray-25px {
+  color: var(--santas-gray);
+  font-family: 'Roboto', Helvetica, Arial, serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 300;
+}
+.roboto-normal-santas-gray-18px {
+  color: var(--santas-gray);
+  font-family: 'Roboto', Helvetica, Arial, serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+}
+.roboto-normal-santas-gray-25px {
+  color: var(--santas-gray);
+  font-family: 'Roboto', Helvetica, Arial, serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+}
+:root {
+  --cultured-pearl: rgba(247,245,245,1.0);
+  --ebony-clay: rgba(40,42,59,1.0);
+  --santas-gray: rgba(158,160,174,1.0);
+  --white: rgba(255,255,255,1.0);
+}
