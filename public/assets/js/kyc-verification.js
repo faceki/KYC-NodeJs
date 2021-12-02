@@ -29,6 +29,10 @@ fetch(BASE_URL+'getToken', {
 	let back_img = sessionStorage.getItem('back_img');
 	let selfie_image = sessionStorage.getItem('selfie_image');
 
+    console.log('front_img',front_img);
+    console.log('back_img',back_img);
+    console.log('selfie_image',selfie_image);
+
 	if (front_img == '' || front_img == null) {
 	    alert('Please take Id Card front image first!!');
 	    window.location.href=baseUrl+newPath+"/index.html";

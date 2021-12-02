@@ -3,6 +3,19 @@ const baseUrl = window.location.origin+"/";
 var video = document.getElementById("video");
 const messageOne = document.querySelector("#message-1");
 // const messageTwo = document.querySelector('#message-2');
+
+var widthOfCrop = 555; // width of frame where we have to fit ID for desktop
+var heightOfCrop = 350; // height of frame where we have to fit ID for desktop
+var xCrop = 355; // x axis distance of where we start cropping
+var yCrop = 250; // y axis distance of where we start cropping
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+if(vw<768){
+  widthOfCrop = 580; // width of frame where we have to fit ID for mobile
+  heightOfCrop = 190; // height of frame where we have to fit ID for mobile
+  xCrop = 40; // x axis distance of where we start cropping
+  yCrop = 100; 
+}
+
 button_callback();
 
 function button_callback() {
@@ -48,13 +61,20 @@ function stop(e) {
 let imageData = "";
 
 function takeASnap(vid) {
-  const canvas = document.createElement("canvas");
+  const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
-  canvas.width = vid.videoWidth;
-  canvas.height = vid.videoHeight;
-  ctx.drawImage(vid, 0, 0);
-  imageData = canvas.toDataURL("image/png", 1.0);
-  sessionStorage.setItem("selfie_image", imageData);
+  // canvas.width = vid.videoWidth;
+  // canvas.height = vid.videoHeight;
+  // ctx.drawImage(vid, 0, 0);
+  // imageData = canvas.toDataURL("image/png", 1.0);
+
+  canvas.width = widthOfCrop;// width and height of cropped image
+  canvas.height = heightOfCrop;
+  ctx.drawImage(video, xCrop, yCrop, widthOfCrop, heightOfCrop, 0, 0, widthOfCrop, heightOfCrop);
+  var croppedData = canvas.toDataURL("image/png", 1.0);
+
+  sessionStorage.setItem("selfie_image", croppedData);
+
   return new Promise((res, rej) => {
     canvas.toBlob(res, "image/png");
   });
@@ -65,15 +85,12 @@ function callApi(img_type){
     document.getElementById('capture').style.display = "none";
     video.pause(); 
     takeASnap(video).then(blob =>{
-        let front_img = sessionStorage.getItem('doc_front_image');
-        let back_img = sessionStorage.getItem('doc_back_image');
-        let selfie_image = sessionStorage.getItem('selfie_image');
         const pathUrlArray1 = pathUrl.split("/");
         var pathUrlArray = pathUrlArray1.filter(function (el) {
             return el != '';
         });
         pathUrlArray.pop();
         const newPath=pathUrlArray.join("/");
-        window.location.href=baseUrl+newPath+"/verifying.html";
+        window.location.href=baseUrl+"verifying";
     });
 }
