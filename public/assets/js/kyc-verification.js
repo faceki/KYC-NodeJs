@@ -46,7 +46,7 @@ fetch(BASE_URL+'getToken', {
     var sjpegBlob = base64ToBlob(sjpegFile64, 'image/jpeg');
     const selfieImg = new File([sjpegBlob], "filename-selfie.jpeg",{ type: 'image/jpeg' });
 
-    sendImgeToKyc(frontImge,backImg,selfieImg);
+    sendImgeToKyc(jpegBlob,bjpegBlob,sjpegBlob);
 
 });
 
