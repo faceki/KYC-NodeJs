@@ -53,10 +53,10 @@ function takeASnap(vid) {
   canvas.width = vid.videoWidth;
   canvas.height = vid.videoHeight;
   ctx.drawImage(vid, 0, 0);
-  imageData = canvas.toDataURL("image/jpeg", 1.0);
+  imageData = canvas.toDataURL("image/png", 1.0);
   sessionStorage.setItem("selfie_image", imageData);
   return new Promise((res, rej) => {
-    canvas.toBlob(res, "image/jpeg");
+    canvas.toBlob(res, "image/png");
   });
 }
 
