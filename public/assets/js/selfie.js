@@ -50,9 +50,9 @@ let imageData = "";
 function takeASnap(vid) {
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext("2d");
-  canvas.width = vid.videoWidth;
-  canvas.height = vid.videoHeight;
-  ctx.drawImage(vid, 0, 0);
+  canvas.width = 800;
+  canvas.height = 600;
+  ctx.drawImage(vid, 0, 0, 800, 600);
   imageData = canvas.toDataURL("image/jpeg", 1.0);
   sessionStorage.setItem("selfie_image", imageData);
   return new Promise((res, rej) => {
