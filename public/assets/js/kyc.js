@@ -35,10 +35,10 @@ if(vw<768){
             audio: false,
             video: {
                 width: {
-                    ideal: (is_mobile_device==true)?1024:1920
+                    ideal: (is_mobile_device==true)?1280:1920
                 },
                 height: {
-                    ideal: (is_mobile_device==true)?768:1080
+                    ideal: (is_mobile_device==true)?720:1080
                 },
                 facingMode: "environment"
             },
