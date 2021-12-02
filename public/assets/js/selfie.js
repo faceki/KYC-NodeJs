@@ -11,12 +11,6 @@ function button_callback() {
       .getUserMedia({
         video: true,
         video: {
-          width: {
-            ideal: 1920,
-          },
-          height: {
-            ideal: 1080,
-          },
           facingMode: "user",
         },
       })
@@ -50,10 +44,10 @@ let imageData = "";
 function takeASnap(vid) {
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
-  canvas.width = 650;
-  canvas.height = 500;
-  ctx.drawImage(vid, 0, 0, 650, 500);
-  imageData = canvas.toDataURL("image/jpeg", 1.0);
+  canvas.width = vid.videoWidth;
+  canvas.height = vid.videoHeight;
+  ctx.drawImage(vid, 0,0); 
+  imageData = canvas.toDataURL('image/jpeg', 1.0)
   sessionStorage.setItem("selfie_image", imageData);
   console.log('data333',sessionStorage.getItem("selfie_image"));
   return new Promise((res, rej) => {
