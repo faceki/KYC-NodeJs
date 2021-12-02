@@ -26,7 +26,7 @@ fetch(BASE_URL+'getToken', {
     sessionStorage.setItem("auth_token", res.token);
 
 	let front_img = sessionStorage.getItem('front_img');
-	let back_img = sessionStorage.getItem('front_img');
+	let back_img = sessionStorage.getItem('back_img');
 	let selfie_image = sessionStorage.getItem('selfie_image');
 
 	if (front_img == '' || front_img == null) {

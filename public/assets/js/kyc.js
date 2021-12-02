@@ -91,7 +91,7 @@ let is_mobile_device = false;
                 canvas.width = 650;
                 canvas.height = 500;
                 context.drawImage(video, 0, 0, 650, 500);
-                var data = canvas.toDataURL('image/png');
+                var data = canvas.toDataURL("image/jpeg", 1.0);
 
                 var front_img=sessionStorage.getItem("front_img");
                 if(front_img=='' || front_img==null){
