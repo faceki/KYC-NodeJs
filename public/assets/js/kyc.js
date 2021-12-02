@@ -85,14 +85,8 @@ let is_mobile_device = false;
                 canvas.width = width;
                 canvas.height = height;
                 context.drawImage(video, 0, 0, width, height);
-                var data = canvas.toDataURL('image/jpeg');
+                var data = canvas.toDataURL('image/png');
                 photo.setAttribute('src', data);
-
-                canvas.width = 650;
-                canvas.height = 500;
-                context.drawImage(video, 0, 0, 650, 500);
-                var data = canvas.toDataURL("image/jpeg", 1.0);
-
                 var front_img=sessionStorage.getItem("front_img");
                 if(front_img=='' || front_img==null){
                  sessionStorage.setItem("front_img",data);
@@ -148,6 +142,18 @@ let is_mobile_device = false;
             false
         );
         confirm.addEventListener("click", function(ev) {
+                var back_img=sessionStorage.getItem("back_img");
+                if(back_img!='' && back_img!=null){
+
+                const pathUrlArray1 = pathUrl.split("/");
+                var pathUrlArray = pathUrlArray1.filter(function (el) {
+                    return el != '';
+                });
+                pathUrlArray.pop();
+                const newPath=pathUrlArray.join("/");
+                window.location.href=baseUrl+newPath+"/take-selfie.html";
+
+                }else{
                   document.querySelector('.faceki-card__img').src = 'assets/img/user-info/id-back-light.png';
                   document.querySelector('.title').textContent = 'BACK SIDE';
                   result.style.opacity = "0";
@@ -155,21 +161,9 @@ let is_mobile_device = false;
                   camera.style.opacity = "1";
                   camera.style.visibility = "visible";
                   ev.preventDefault(); 
-            },
-            false
-        );
-        confirm2.addEventListener("click", function(ev) {
-                var back_img=sessionStorage.getItem("back_img");
-                if(back_img!='' && back_img!=null){
-                const pathUrlArray1 = pathUrl.split("/");
-                var pathUrlArray = pathUrlArray1.filter(function (el) {
-                    return el != '';
-                });
-                pathUrlArray.pop();
-                const newPath=pathUrlArray.join("/");
-                window.location.href=baseUrl+"take-selfie";
                 }
             },
+
             false
         );
         window.onload = (event) => {

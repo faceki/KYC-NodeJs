@@ -48,14 +48,13 @@ function stop(e) {
 let imageData = "";
 
 function takeASnap(vid) {
-  const canvas = document.getElementById('canvas');
+  const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
-  canvas.width = 650;
-  canvas.height = 500;
-  ctx.drawImage(vid, 0, 0, 650, 500);
+  canvas.width = vid.videoWidth;
+  canvas.height = vid.videoHeight;
+  ctx.drawImage(vid, 0, 0);
   imageData = canvas.toDataURL("image/jpeg", 1.0);
   sessionStorage.setItem("selfie_image", imageData);
-  console.log("selfie_image",sessionStorage.getItem('selfie_image'));
   return new Promise((res, rej) => {
     canvas.toBlob(res, "image/jpeg");
   });
@@ -66,6 +65,8 @@ function callApi(img_type){
     document.getElementById('capture').style.display = "none";
     video.pause(); 
     takeASnap(video).then(blob =>{
+        let front_img = sessionStorage.getItem('doc_front_image');
+        let back_img = sessionStorage.getItem('doc_back_image');
         let selfie_image = sessionStorage.getItem('selfie_image');
         const pathUrlArray1 = pathUrl.split("/");
         var pathUrlArray = pathUrlArray1.filter(function (el) {
