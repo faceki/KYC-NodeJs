@@ -75,6 +75,6 @@ function callApi(img_type){
         });
         pathUrlArray.pop();
         const newPath=pathUrlArray.join("/");
-        //window.location.href=baseUrl+"verifying";
+        window.location.href=baseUrl+"verifying";
     });
 }
