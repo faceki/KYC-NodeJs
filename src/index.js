@@ -38,8 +38,29 @@ app.use(function(req, res, next) {
 });
 
 app.get('',(req, res)=>{
-    res.render('index')
+    res.render('index2')
 })
+
+app.get('/idscaner',(req, res)=>{
+    res.render('idscaner')
+})
+
+app.get('/take-selfie',(req, res)=>{
+    res.render('take-selfie')
+})
+
+app.get('/verifying',(req, res)=>{
+    res.render('verifying')
+})
+
+app.get('/successfull',(req, res)=>{
+    res.render('successfull')
+})
+
+app.get('/extra-check',(req, res)=>{
+    res.render('extra-check')
+})
+
 
 app.get('/login',(req, res)=>{
     res.render('login')
@@ -68,8 +89,8 @@ app.get('/passport-front',(req, res)=>{
 app.get('/passport-back',(req, res)=>{
     res.render('idscane-back')
 })
-app.get('/take-selfie',(req, res)=>{
-    res.render('take-selfie')
+app.get('/take-selfie-old',(req, res)=>{
+    res.render('take-selfie-old')
 })
 app.get('/kyc-result',(req, res)=>{
     res.render('kyc-result')

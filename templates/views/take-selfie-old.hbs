@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<style type="text/css">
+body{
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #263048 !important;
+}
+.clr_w{
+  color: #fff;
+}
+h4{
+  margin-left: 88px !important;
+}
+
+#loader {
+  right: auto;
+  left: 100px;
+  position: absolute;
+}
+.capture{
+  position: absolute;
+  top: 17%;
+  left: 435px;
+  z-index: 9999999;
+}
+.cemra {
+  margin-top: 15px !important;
+}
+.mid_cl{
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+.mid_cl img{
+  position: relative;
+  z-index: 9999;
+}
+.mid_cl h3{
+  margin: 0;
+  padding: 20px 0px;
+  text-align: center;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 600;
+}
+.facescane_my{
+  position: absolute;
+  top: 12%;
+  left: 3%;
+  z-index: 1;
+}
+.facescane_my video{
+  width: 380px;
+  height: 380px;
+}
+.mid_cl .img_mob{
+  display: none;
+}
+.coverl{
+  display: none;
+}
+@media(max-width:767px){
+header{
+  width: 100%;
+  position: absolute !important;
+}
+.mid_cl {
+  max-width: 400px;
+  width: 100%;
+  height: 50vh;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+#loader {
+  right: auto;
+  left: 80px;
+  position: absolute;
+  top: 230px;
+}
+.mid_cl .img_desk{
+  display: none;
+}
+.mid_cl .img_mob{
+  display: block;
+/*  top: 87px;*/
+}
+.mid_cl h3{
+  display: none;
+}
+.facescane_my{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+}
+.facescane_my video{
+  width: 100%;
+  height: 641px;
+  top: 0;
+  object-fit: cover;
+  border-radius: 0px;
+  position: relative;
+}
+.cemra {
+  position: relative;
+  /*margin: auto;
+  left: 50%;*/
+  bottom: 150px;
+  /*transform: translate(-50%);*/
+  z-index: 99999;
+}
+.cemra img {
+  position: absolute;
+  bottom: -70px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 60px !important;
+}
+
+.balance-VMr6Om {
+  position: relative;
+  top: 120px;
+  right: 38px;
+}
+.balance-VMr6Om h4{
+  font-size: 14px;
+  text-align: center;
+}
+.coverl {
+  width: 100%;
+  height: 100px;
+  background-color: #1d2537fa;
+  display: block;
+  position: absolute;
+  bottom: -83px;
+  z-index: 999;
+  display: none;
+}
+}
+@media (max-width: 320px) and (min-width: 1px){
+.facescane_my video{
+  height: 525px !important;
+}
+.mid_cl .img_mob{
+  height: 511px !important;
+  top: -31px !important;
+}
+.cemra img{
+  bottom: 64px !important;
+  width: 45px !important;
+}
+.forColors{
+
+}
+}
+@media (min-width: 376px) and (max-width: 414px){
+.mid_cl .img_mob{
+  min-height: 736px;
+}
+}
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : portrait) {
+  .facescane_my video{
+  height: 666px;
+}
+}
+</style>
+  <title>Faceki</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="css/responsive.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body class="bg_selfie">
+  <header class="bg-dark">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6 col-xs-6">
+            <div class="selfie-text">
+              <h1>Selfie</h1>
+              <div id="tit"></div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xs-6">
+            <div class="text-right">
+              <a class="navbar-brand" href="/">
+                <img src="image/logo.png" alt="Logo">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </header>
+  <div class="capturediv">
+    <div class="container">
+      <div class="row">
+        <div class="mid_cl">
+          <h3>Fit your face in the middle</h3>
+          <img src="image/capture-screen.png" alt="Capture Screen" id="show-hide-dekstop" class="img-responsive center-block img_desk">
+          <img src="image/new-bg1.png" alt="Mobile Screen" id="show-hide-mobile" class="img-responsive img_mob">
+          <div class="facescane_my">
+            <video autoplay="" class="video-selfie" id="video" muted="" playsinline=""></video>
+          </div>
+          <div class="balance-VMr6Om clr_w">
+            <h4 id="message-1"></h4>
+            <h4 id="message-2"></h4>
+          </div>
+          <div class="cemra">
+            <!-- <input type="file" id="fileInput"> -->
+            <canvas id="canvas" width="320" height="240" style="display: none;"></canvas>
+            <a href="javascript:void(0)" title="Capture Image" id="capture" onclick="callApi('selfi')"><img src="image/cemra.png" class="img-responsive center-block" alt="cemra"></a>
+            <p id="noFace" class="fitFace hidden-sm hidden-md hidden-lg hidden-xl">Fit your face in the middle</p>
+          </div>
+         <!--  <span id="HideColors" class="forColors hidden-sm hidden-md hidden-lg hidden-xl">
+            <img src="image/spanThumb.png" class="img-responsive">
+          </span> -->
+         <div class="coverl"></div>
+          <div class="camera" id="loader" style="display: none">
+            <img class="loader" src="image/loader.gif">
+            <div class="roboto-normal-santas-gray-18px clr_w" align="center">  PLEASE WAIT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>   
+  <!--Script-Start-->
+  <script src="js/jquery-3.3.1.slim.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/kyc.js"></script>
+  <!--Script-End-->
+</body>
+</html>

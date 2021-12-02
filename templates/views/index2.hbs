@@ -1,68 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Faceki</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-  <link rel="stylesheet" href="css/style.css" type="text/css">
-  <link rel="stylesheet" href="css/responsive.css" type="text/css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="id varification app" />
+    <title>Faceki</title>
+    <!-- Favicon -->
+    <!--  Google font cdn link -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!--  all css files  -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
 </head>
+
+
 <body>
-  <!--header-->
-  <header class="bg-dark">
-    <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-6 col-xs-6 hidden-xs">
-            <div class="selfie-text">
-              <h1>Selfie</h1>
+
+    <!-- faceki section start -->
+    <section style="height: 100vh;" class="faceki-section d-flex flex-wrap align-items-center justify-content-center w-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-lg-6 col-xl-5 mx-auto">
+                    <div class="faceki-card faceki-card-dark">
+                        <h2 class="faceki-card__title">Verify Your Identity</h2>
+                        <span class="faceki-card__sub-title">It will only take few seconds</span>
+                        <ul class="faceki-card__list">
+                            <li class="faceki-card__item">
+                                <span class="faceki-card__number">1</span>
+                               <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-front-dark.png" alt=""></div>
+                                <span>Scan ID front side</span>
+                            </li>
+                            <li class="faceki-card__item">
+                                <span class="faceki-card__number">2</span>
+                                <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-back-dark.png" alt=""></div>
+                                <span>Scan ID back side</span>
+                            </li>
+                            <li class="faceki-card__item">
+                                <span class="faceki-card__number">3</span>
+                                <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/user.png" alt=""></div>
+                                <span>Take a selfie picture</span>
+                            </li>
+                        </ul>
+                        <button onclick="getSdkSettings()" class="faceki-card__btn">START</button>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-xs-12">
-            <div class="text-right">
-              <a class="navbar-brand" href="/">
-                <img src="image/logo.png" alt="Logo">
-              </a>
-            </div>
-          </div>
         </div>
-      </div>
-  </header>
-  <!--header-end-->
+    </section>
+    <!-- faceki section end -->
 
-<div class="capturediv">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-xs-12">
-        <div class="capture-screen text-center">
-          <h2>Fit your face in the middle</h2>
-          <img src="image/capture-screen.png" alt="Capture Screen" class="img-fluid hidden-xs">
-          <div class="cemra">
-            <img src="image/cemra.png" alt="cemra">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-  <!--Script-Start-->
-  <script src="js/jquery-3.3.1.slim.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <!--Script-End-->
-  <script type="text/javascript">
-    $(document).ready(function() {
-        $(".fa-search").click(function() {
-           $(".search-box").toggle();
-           $("input[type='text']").focus();
-         });
-
-    });
-  </script>
+    <!--  all js files -->
+    <script src="/assets/js/faceki-startup.js"></script>
 </body>
 
 </html>
