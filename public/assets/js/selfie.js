@@ -48,7 +48,7 @@ function stop(e) {
 let imageData = "";
 
 function takeASnap(vid) {
-  const canvas = document.createElement("canvas");
+  const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext("2d");
   canvas.width = vid.videoWidth;
   canvas.height = vid.videoHeight;
