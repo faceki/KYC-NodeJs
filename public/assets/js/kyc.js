@@ -15,8 +15,8 @@ var xCrop = 355; // x axis distance of where we start cropping
 var yCrop = 250; // y axis distance of where we start cropping
 
 if(is_mobile_device==true){
-  widthOfCrop = 550; // width of frame where we have to fit ID for mobile
-  heightOfCrop = 400; // height of frame where we have to fit ID for mobile
+  widthOfCrop = 650; // width of frame where we have to fit ID for mobile
+  heightOfCrop = 500; // height of frame where we have to fit ID for mobile
   xCrop = 40; // x axis distance of where we start cropping
   yCrop = 200; 
 }

@@ -78,7 +78,7 @@ function base64ToBlob(base64, mime)
 }
 
 
-const kycurl = 'https://app.faceki.com/v2/kyc-verification';
+const kycurl = 'https://app.faceki.com/kyc-verification';
 
 function sendImgeToKyc(front_file,back_file,file_img) {
 
