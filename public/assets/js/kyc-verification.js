@@ -39,18 +39,18 @@ fetch(BASE_URL+'getToken', {
 	}
 
     var jpegFile64 = front_img.replace(/^data:image\/(png|jpeg);base64,/, "");
-    //var jpegBlob = base64ToBlob(jpegFile64, 'image/png');
-    //const frontImge = new File([jpegBlob], "filename-front.png",{ type: 'image/png' });
+    var jpegBlob = base64ToBlob(jpegFile64, 'image/png');
+    const frontImge = new File([jpegBlob], "filename-front.png",{ type: 'image/png' });
 
     var bjpegFile64 = back_img.replace(/^data:image\/(png|jpeg);base64,/, "");
-    //var bjpegBlob = base64ToBlob(bjpegFile64, 'image/png');
-    //const backImg = new File([bjpegBlob], "filename-back.png",{ type: 'image/png' });
+    var bjpegBlob = base64ToBlob(bjpegFile64, 'image/png');
+    const backImg = new File([bjpegBlob], "filename-back.png",{ type: 'image/png' });
 
     var sjpegFile64 = selfie_image.replace(/^data:image\/(png|jpeg);base64,/, "");
-    //var sjpegBlob = base64ToBlob(sjpegFile64, 'image/png');
-    //const selfieImg = new File([sjpegBlob], "filename-selfie.png",{ type: 'image/png' });
+    var sjpegBlob = base64ToBlob(sjpegFile64, 'image/png');
+    const selfieImg = new File([sjpegBlob], "filename-selfie.png",{ type: 'image/png' });
 
-    sendImgeToKyc(jpegFile64,bjpegFile64,sjpegFile64);
+    sendImgeToKyc(frontImge,backImg,selfieImg);
 
 });
 
