@@ -10,13 +10,13 @@ let is_mobile_device = false;
 })(navigator.userAgent || navigator.vendor || window.opera);
 
 var widthOfCrop = 555; // width of frame where we have to fit ID for desktop
-var heightOfCrop = 350; // height of frame where we have to fit ID for desktop
+var heightOfCrop = 450; // height of frame where we have to fit ID for desktop
 var xCrop = 355; // x axis distance of where we start cropping
 var yCrop = 250; // y axis distance of where we start cropping
 
 if(is_mobile_device==true){
   widthOfCrop = 550; // width of frame where we have to fit ID for mobile
-  heightOfCrop = 300; // height of frame where we have to fit ID for mobile
+  heightOfCrop = 400; // height of frame where we have to fit ID for mobile
   xCrop = 40; // x axis distance of where we start cropping
   yCrop = 200; 
 }
@@ -30,10 +30,10 @@ function button_callback() {
         video: true,
         video: {
           width: {
-            ideal: (is_mobile_device==true)?1280:1920
+            ideal: 1920
           },
           height: {
-            ideal: (is_mobile_device==true)?720:1080
+            ideal: 1080
           },
           facingMode: "user",
         },
