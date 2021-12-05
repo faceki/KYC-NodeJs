@@ -243,6 +243,35 @@
       <script src="/assets/js/kyc.js"></script>
 
       <script>
+         function button_callback2() {
+          var video = document.getElementById("video2");
+          if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices
+              .getUserMedia({
+                video: true,
+                video: {
+                  width: {
+                    ideal: 1920,
+                  },
+                  height: {
+                    ideal: 1080,
+                  },
+                  facingMode: "user",
+                },
+              })
+              .then(function (stream) {
+                video.srcObject = stream;
+                video.setAttribute("autoplay", "");
+                video.setAttribute("muted", "");
+                video.setAttribute("playsinline", "");
+                video.play();
+              })
+              .catch(function (err0r) {
+                console.log("Something went wrong!");
+              });
+          }
+         }
+
          function takeASnap(vid) {
           const canvas = document.getElementById('canvas2');
           const ctx = canvas.getContext("2d");
@@ -381,12 +410,14 @@
                                  alert(resp.error.message);
                                  verifypage.style.display = "none";
                                  selfiepage.style.display = "block";
+                                 button_callback2();
                              }
 
                              if (resp.error.code == 9) {
                                  alert(resp.error.message);
                                  verifypage.style.display = "none";
                                  selfiepage.style.display = "block";
+                                 button_callback2();
                              }
                          }             
                      }else {
@@ -394,11 +425,13 @@
                          if(resp.message=='Face not matched!'){
                            verifypage.style.display = "none";
                            selfiepage.style.display = "block";
+                           button_callback2();
                          }else if(resp.message=='Photocopy document not allowed.'){
                            window.location.href=baseUrl+"idscaner";
                          }else{
                            verifypage.style.display = "none";
                            selfiepage.style.display = "block";
+                           button_callback2();
                          }
                      }
                  }
