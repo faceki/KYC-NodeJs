@@ -4,13 +4,25 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Faceki</title>
       <!--  all css files  -->
       <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
       <link rel="stylesheet" href="/assets/css/style.css" />
-      <title>Faceki</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+      <style type="text/css">
+       .facescane_my video{
+         -webkit-transform: scaleX(-1);
+         transform: scaleX(-1);
+       }
+     </style>
+      
    </head>
    <body>
-      <div class="camera-holder position-relative">
+      <div class="camera-holder position-relative" id="idscannerpage">
          <!--  Id Card front side start -->
          <div id="camera" class="faceki-card faceki-card-light">
             <div class="camera-content-top">
@@ -105,13 +117,295 @@
                <div class="readability-buttons">
                   <button id="retake-button" class="faceki-btn-outline-light">RETAKE</button>
                   <button id="backpartbutton" class="faceki-btn-light">CONFIRM</button>
-                  <button id="backpartbutton2" class="faceki-btn-light" style="display:none;">CONFIRM</button>
+                  <button id="backpartbutton2" class="faceki-btn-light" style="display:none;">CONFIRM2</button>
                </div>
             </div>
          </div>
          <!--  Id Card result end -->
       </div>
+
+
+      <!--  Selfie Page html start -->
+
+
+      <section class="faceki-section" id="selfiepage" style="display:none;">
+      <div class="camera-holder">
+        <div class="faceki-card faceki-card-light mx-auto position-relative mx-auto">
+          <div class="camera-content-top">
+            <h2 id="noFace" class="faceki-card__title mb-0">Take a Selfie</h2>
+            <h3 class="faceki-card__title mb-0 d-none d-md-block">Fit your face in the middle</h3>
+        </div>
+        
+
+        <div id="desktop-selfie" class="d-none d-md-block">
+         <img src="/assets/img/shape/selfie-desktop.png" alt="">
+        </div>
+  
+       <div id="mobile-selfie">
+        <img class="slfie-screen d-md-none" src="/assets/img/shape/selfie.png" alt="">
+       </div>
+  
+        <button class="camera-btn selfie-btn" id="capture" onclick="callApi('front')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="70" height="71" viewBox="0 0 70 71">
+              <g id="Group_276" data-name="Group 276" transform="translate(1.032 1.4)">
+                <g id="Group_126" data-name="Group 126" transform="translate(0)">
+                  <ellipse id="Oval_2" data-name="Oval 2" cx="34" cy="34.5" rx="34" ry="34.5" transform="translate(-0.032 -0.4)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/>
+                  <circle id="Oval_2-2" data-name="Oval 2" cx="26" cy="26" r="26" transform="translate(7.968 8.6)" fill="#fff"/>
+                </g>
+                <g id="Group_129" data-name="Group 129" transform="translate(22.77 22.428)">
+                  <g id="Group_128" data-name="Group 128">
+                    <path id="Path_134" data-name="Path 134" d="M703.9,322.184l.947-1.891a4.743,4.743,0,0,1,.4-.617,2.143,2.143,0,0,1,.724-.65.987.987,0,0,1,.438-.107h6.528a.988.988,0,0,1,.44.107,2.145,2.145,0,0,1,.724.65,4.862,4.862,0,0,1,.412.632l.937,1.876h1.84a3.808,3.808,0,0,1,3.808,3.808v9.792a3.808,3.808,0,0,1-3.808,3.808H702.062a3.808,3.808,0,0,1-3.808-3.808v-9.792a3.808,3.808,0,0,1,3.808-3.808Zm-1.3,5.44a1.088,1.088,0,1,0-1.088-1.088,1.088,1.088,0,0,0,1.088,1.088Zm7.072,7.616a4.9,4.9,0,1,0-4.9-4.9,4.9,4.9,0,0,0,4.9,4.9Z" transform="translate(-698.254 -318.92)" fill="#464c5f"/>
+                    <path id="Path_135" data-name="Path 135" d="M709.062,333.536a3.808,3.808,0,1,0-3.808-3.808,3.808,3.808,0,0,0,3.808,3.808Z" transform="translate(-697.638 -318.304)" fill="#464c5f" fill-rule="evenodd"/>
+                  </g>
+                </g>
+              </g>
+            </svg>
+      </button>
+    <div class="selfie-content-bottom">
+      <h3 class="faceki-card__title mb-0 d-md-none">Fit your face in the middle</h3>
+      <h4 id="message-1"></h4>
+    </div>
+      <div class="facescane_my">
+          <img class="pattern d-md-none" src="/assets/img/shape/pattern.png" alt="">
+          <video autoplay="" class="video-selfie" id="video2" muted="" playsinline=""></video>
+      </div>
+
+      </div>
+   
+   
+     <canvas id="canvas2" style="display: none;"></canvas>
+    </section> 
+
+      <!--  Selfie Page html end -->
+
+      <!-- Verifying Page start -->
+      <section id="verifypage" style="height: 100vh;" class="faceki-section d-flex flex-wrap align-items-center justify-content-center w-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-lg-6 col-xl-5 mx-auto">
+                    <div class="faceki-card faceki-card-dark success__card">
+                        <span class="faceki-card__sub-title">Verifying your identity...</span>
+                        <img  src="/assets/img/icon/Faceki-Verifing-animation2.gif" alt="Verifying...">
+                        <span class="extra-information">It will take few seconds only</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+      <!-- Verifying Page end -->
+
+      <!-- Successfull Page start -->
+      <section id="successfullpage" style="height: 100vh;" class="faceki-section d-flex flex-wrap align-items-center justify-content-center w-100">
+           <div class="container">
+               <div class="row">
+                   <div class="col-sm-10 col-lg-6 col-xl-5 mx-auto">
+                       <div class="faceki-card faceki-card-dark success__card">
+                          <div class="success__icon">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+                               <g id="tick" transform="translate(2.5 2.5)">
+                                 <path id="Path_64" data-name="Path 64" d="M45.5,0A45.5,45.5,0,1,1,0,45.5H0A45.37,45.37,0,0,1,45.241,0Z" transform="translate(0 0)" fill="none" stroke="#9ea0ae" stroke-width="5"/>
+                                 <path id="Path_65" data-name="Path 65" d="M132.437,111.207l-32.315,32.315-18.1-17.967,7.368-7.239,10.729,10.6,24.948-24.947Z" transform="translate(-61.731 -78.245)" fill="#9ea0ae"/>
+                               </g>
+                             </svg>
+                          </div>
+                             
+                           <h2 class="faceki-card__title">SUCCESSFUL</h2>
+                           <span class="faceki-card__sub-title">Your Identity successfully verified</span>
+                           <span class="extra-information">Extra information from dash</span>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+       <!-- Successfull Page end -->
+
+       <!-- Extra checkup page start -->
+       <section id="extrapage" style="height: 100vh;" class="faceki-section d-flex flex-wrap align-items-center justify-content-center w-100">
+           <div class="container">
+               <div class="row">
+                   <div class="col-sm-10 col-lg-6 col-xl-5 mx-auto">
+                       <div class="faceki-card faceki-card-dark success__card">
+                          <div class="success__icon">
+                           <img src="/assets/img/icon/tick.png" alt="">
+                          </div>
+                             
+                           <h2 class="faceki-card__title">Extra Check Required</h2>
+                           <span class="faceki-card__sub-title">Couldn’t verify your identity</span>
+                           <span class="extra-information">Extra information from dash</span>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+       <!-- Extra checkup page end -->
+
+
       <script src="/assets/js/kyc.js"></script>
+
+      <script>
+         function takeASnap(vid) {
+          const canvas = document.getElementById('canvas2');
+          const ctx = canvas.getContext("2d");
+          canvas.width = vid.videoWidth;
+          canvas.height = vid.videoHeight;
+          ctx.drawImage(vid, 0, 0);
+          imageData = canvas.toDataURL("image/jpeg", 1.0);
+          sessionStorage.setItem("selfie_image", 333);
+          selfie_image=imageData;
+          console.log('data333',sessionStorage.getItem("selfie_image"));
+          return new Promise((res, rej) => {
+            canvas.toBlob(res, "image/jpeg");
+          });
+        }
+
+        function callApi(img_type){
+            document.getElementById('video2').style.display = "none";
+            document.getElementById('capture').style.display = "none";
+            video.pause(); 
+            takeASnap(video).then(blob =>{
+               console.log('front_image',front_image);
+               console.log('back_image',back_image);
+               console.log('selfie_image',selfie_image);
+               selfiepage.style.display = "none";
+               verifypage.style.display = "block";
+               getToken();
+            });
+        }
+
+        function getToken(){
+            const BASE_URL = "https://app.faceki.com/";
+            data = JSON.stringify({
+                client_id:"af7d4790-04a9-11ec-aecf-1dca4d5eaaf0",
+                email:"demo@faceki.com",
+            })
+            fetch(BASE_URL+'getToken', {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body:data
+            }).then(response=>{
+                return response.json()
+            }).then(function(res){
+
+               sessionStorage.setItem("auth_token", res.token);
+
+               if (front_image == '' || front_image == null) {
+                   alert('Please take Id Card front image first!!');
+                   window.location.href=baseUrl+"idscaner";
+               }
+
+                var jpegFile64 = front_image.replace(/^data:image\/(png|jpeg);base64,/, "");
+                var jpegBlob = base64ToBlob(jpegFile64, 'image/jpeg');
+                const frontImge = new File([jpegBlob], "filename-front.jpeg",{ type: 'image/jpeg' });
+
+                var bjpegFile64 = back_image.replace(/^data:image\/(png|jpeg);base64,/, "");
+                var bjpegBlob = base64ToBlob(bjpegFile64, 'image/jpeg');
+                const backImg = new File([bjpegBlob], "filename-back.jpeg",{ type: 'image/jpeg' });
+
+                var sjpegFile64 = selfie_image.replace(/^data:image\/(png|jpeg);base64,/, "");
+                var sjpegBlob = base64ToBlob(sjpegFile64, 'image/jpeg');
+                const selfieImg = new File([sjpegBlob], "filename-selfie.jpeg",{ type: 'image/jpeg' });
+
+                sendImgeToKyc(frontImge,backImg,selfieImg);
+
+            });
+         }
+
+         function base64ToBlob(base64, mime)
+         {
+             mime = mime || '';
+             var sliceSize = 1024;
+             var byteChars = window.atob(base64);
+             var byteArrays = [];
+
+             for (var offset = 0, len = byteChars.length; offset < len; offset += sliceSize) {
+                 var slice = byteChars.slice(offset, offset + sliceSize);
+
+                 var byteNumbers = new Array(slice.length);
+                 for (var i = 0; i < slice.length; i++) {
+                     byteNumbers[i] = slice.charCodeAt(i);
+                 }
+
+                 var byteArray = new Uint8Array(byteNumbers);
+
+                 byteArrays.push(byteArray);
+             }
+
+             return new Blob(byteArrays, {type: mime});
+         }
+
+         function sendImgeToKyc(front_file,back_file,file_img) {
+             const kycurl = 'https://app.faceki.com/kyc-verification';
+             const data_auth = new FormData();
+             data_auth.append('doc_front_image', front_file);
+             data_auth.append('doc_back_image', back_file);
+             data_auth.append('selfie_image', file_img);
+             const req = new XMLHttpRequest();
+
+             let auth_token = sessionStorage.getItem('auth_token');
+
+             if (auth_token == '') {
+                 auth_token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJrcmlzaG5hLW1pc2hyYS1wYXNzd29yZC1rcmlzaG5hIiwiZW1haWwiOiJlci5rcmlzaG5AZ21haWwuY29tIiwiaWF0IjoxNjE1ODkxOTIzLCJleHAiOjE2MTU4OTU1MjN9.-vzKN3v2iHbX7k5HCNs-QR-Ftu2NvMgIYqfcW8q76Qo';
+             }
+
+             req.open('POST', kycurl, true);
+             req.setRequestHeader('Authorization','Bearer '+auth_token);
+             req.onreadystatechange = function () {
+                 if (this.readyState == 4 ) {
+                     console.log('server_response',this.response);
+                     var resp = JSON.parse(this.response);
+                     if (this.status == "200") {
+                         if (resp.result) {
+                             if(resp.face.confidence){
+                                 sessionStorage.removeItem("front_img");
+                                 sessionStorage.removeItem("back_img");
+                                 sessionStorage.removeItem("auth_token");
+                                 sessionStorage.setItem("score", resp.face.confidence);
+                                 sessionStorage.setItem("response_data", JSON.stringify(resp));
+                                 verifypage.style.display = "none";
+                                 successfullpage.style.display = "block";
+                             }else if(resp.face.error){
+                                 sessionStorage.setItem("face-error", 1);
+                                 sessionStorage.setItem("face-error-msg", resp.face.error_message);
+                                 sessionStorage.setItem("score", 0);
+                                 verifypage.style.display = "none";
+                                 extrapage.style.display = "block";
+                             }
+                             return;
+                         }
+
+                         if (resp.error.code) {
+                             if (resp.error.code == 7) {
+                                 alert(resp.error.message);
+                                 verifypage.style.display = "none";
+                                 selfiepage.style.display = "block";
+                             }
+
+                             if (resp.error.code == 9) {
+                                 alert(resp.error.message);
+                                 verifypage.style.display = "none";
+                                 selfiepage.style.display = "block";
+                             }
+                         }             
+                     }else {
+                         alert(resp.message);
+                         if(resp.message=='Face not matched!'){
+                           verifypage.style.display = "none";
+                           selfiepage.style.display = "block";
+                         }else if(resp.message=='Photocopy document not allowed.'){
+                           window.location.href=baseUrl+"idscaner";
+                         }else{
+                           verifypage.style.display = "none";
+                           selfiepage.style.display = "block";
+                         }
+                     }
+                 }
+             };
+             req.send(data_auth);
+         }
+      </script>
    </body>
 </html>
 
