@@ -287,8 +287,8 @@
         }
 
         function callApi(img_type){
-            document.getElementById('video2').style.display = "none";
-            document.getElementById('capture').style.display = "none";
+            //document.getElementById('video2').style.display = "none";
+            //document.getElementById('capture').style.display = "none";
             video.pause(); 
             takeASnap(video).then(blob =>{
                console.log('front_image',front_image);
@@ -430,9 +430,7 @@
                          }else if(resp.message=='Photocopy document not allowed.'){
                            window.location.href=baseUrl+"idscaner";
                          }else{
-                           verifypage.style.display = "none";
-                           selfiepage.style.display = "block";
-                           button_callback2();
+                           window.location.href=baseUrl+"idscaner";
                          }
                      }
                  }
