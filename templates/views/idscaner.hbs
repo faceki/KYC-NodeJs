@@ -367,7 +367,7 @@
          }
 
          function sendImgeToKyc(front_file,back_file,file_img) {
-             const kycurl = 'https://app.faceki.com/kyc-verification';
+             const kycurl = 'https://app.faceki.com/v2/kyc-verification';
              const data_auth = new FormData();
              data_auth.append('doc_front_image', front_file);
              data_auth.append('doc_back_image', back_file);
