@@ -442,10 +442,14 @@
                                 verifypage.style.opacity = 0;
                                 successfullpage.style.display = "block";
                                 location.href = "#successfullpage";
+                            }else if(resp.status=='Decliend'){
+                                verifypage.style.opacity = 0;
+                                extrapage.style.display = "block";
+                                location.href = "#extrapage";
                             }else{
                                 window.location.href=baseUrl+"idscaner";
                             }
-                        }
+                         }
 
                          if (resp.error.code) {
                              if (resp.error.code == 7) {
