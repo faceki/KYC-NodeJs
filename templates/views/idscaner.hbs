@@ -243,7 +243,7 @@
       <script src="/assets/js/vendor/jquery-3.6.0.min.js"></script>
 
       <script>
-         function button_callback2() {
+        function button_callback2() {
           var video = document.getElementById("video2");
           if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             navigator.mediaDevices
@@ -270,9 +270,9 @@
                 console.log("Something went wrong!");
               });
           }
-         }
+        }
 
-         function takeASnap(vid) {
+        function takeASnap(vid) {
           const canvas = document.getElementById('canvas2');
           const ctx = canvas.getContext("2d");
           canvas.width = vid.videoWidth;
@@ -292,9 +292,6 @@
             //document.getElementById('capture').style.display = "none";
             video.pause(); 
             takeASnap(video).then(blob =>{
-               console.log('front_image',front_image);
-               console.log('back_image',back_image);
-               console.log('selfie_image',selfie_image);
                selfiepage.style.display = "none";
                verifypage.style.display = "block";
                getToken();
@@ -318,6 +315,8 @@
                 return response.json()
             }).then(function(res){
 
+               console.log('selfie_image',selfie_image);
+
                sessionStorage.setItem("auth_token", res.token);
 
                if (front_image == '' || front_image == null) {
@@ -325,19 +324,56 @@
                    window.location.href=baseUrl+"idscaner";
                }
 
-                var jpegFile64 = front_image.replace(/^data:image\/(png|jpeg);base64,/, "");
-                var jpegBlob = base64ToBlob(jpegFile64, 'image/jpeg');
-                const frontImge = new File([jpegBlob], "filename-front.jpeg",{ type: 'image/jpeg' });
+                let doc_type1 = sessionStorage.getItem("doc_type_one");
+                let doc_type2 = sessionStorage.getItem("doc_type_two");
+                let doc_type3 = sessionStorage.getItem("doc_type_three");
 
-                var bjpegFile64 = back_image.replace(/^data:image\/(png|jpeg);base64,/, "");
-                var bjpegBlob = base64ToBlob(bjpegFile64, 'image/jpeg');
-                const backImg = new File([bjpegBlob], "filename-back.jpeg",{ type: 'image/jpeg' });
+   
+                var doc1_jpegFile64 = front_image.replace(/^data:image\/(png|jpeg);base64,/, "");
+                var doc1_jpegBlob = base64ToBlob(doc1_jpegFile64, 'image/jpeg');
+                var doc1_frontImge = new File([doc1_jpegBlob], "filename-front.jpeg",{ type: 'image/jpeg' });
+
+                var doc1_bjpegFile64 = back_image.replace(/^data:image\/(png|jpeg);base64,/, "");
+                var doc1_bjpegBlob = base64ToBlob(doc1_bjpegFile64, 'image/jpeg');
+                var doc1_backImg = new File([doc1_bjpegBlob], "filename-back.jpeg",{ type: 'image/jpeg' });
+
+                if (front_image_two != '' && front_image_two != null) {
+                    var doc2_jpegFile64 = front_image_two.replace(/^data:image\/(png|jpeg);base64,/, "");
+                    var doc2_jpegBlob = base64ToBlob(doc2_jpegFile64, 'image/jpeg');
+                    var doc2_frontImge = new File([doc2_jpegBlob], "filename-front.jpeg",{ type: 'image/jpeg' });
+                }else{
+                 var doc2_frontImge ='';
+                }
+
+                if (back_image_two != '' && back_image_two != null) {
+                    var doc2_bjpegFile64 = back_image_two.replace(/^data:image\/(png|jpeg);base64,/, "");
+                    var doc2_bjpegBlob = base64ToBlob(doc2_bjpegFile64, 'image/jpeg');
+                    var doc2_backImg = new File([doc2_bjpegBlob], "filename-back.jpeg",{ type: 'image/jpeg' });
+                }else{
+                 var doc2_backImg ='';
+                }
+
+                if (front_image_three != '' && front_image_three != null) {
+                    var doc3_jpegFile64 = front_image_three.replace(/^data:image\/(png|jpeg);base64,/, "");
+                    var doc3_jpegBlob = base64ToBlob(doc3_jpegFile64, 'image/jpeg');
+                    var doc3_frontImge = new File([doc3_jpegBlob], "filename-front.jpeg",{ type: 'image/jpeg' });
+                }else{
+                 var doc3_frontImge ='';
+                }
+
+                if (back_image_three != '' && back_image_three != null) {
+                    var doc3_bjpegFile64 = back_image_three.replace(/^data:image\/(png|jpeg);base64,/, "");
+                    var doc3_bjpegBlob = base64ToBlob(doc3_bjpegFile64, 'image/jpeg');
+                    var doc3_backImg = new File([doc3_bjpegBlob], "filename-back.jpeg",{ type: 'image/jpeg' });
+                }else{
+                 var doc3_backImg ='';
+                }
 
                 var sjpegFile64 = selfie_image.replace(/^data:image\/(png|jpeg);base64,/, "");
                 var sjpegBlob = base64ToBlob(sjpegFile64, 'image/jpeg');
-                const selfieImg = new File([sjpegBlob], "filename-selfie.jpeg",{ type: 'image/jpeg' });
+                var selfieImg = new File([sjpegBlob], "filename-selfie.jpeg",{ type: 'image/jpeg' });
 
-                sendImgeToKyc(frontImge,backImg,selfieImg);
+                sendImgeToKyc(doc_type1,doc1_frontImge,doc1_backImg,doc_type2,doc2_frontImge,doc2_backImg,doc_type3,doc3_frontImge,doc3_backImg,selfieImg);
 
             });
          }
@@ -365,12 +401,26 @@
              return new Blob(byteArrays, {type: mime});
          }
 
-         function sendImgeToKyc(front_file,back_file,file_img) {
-             const kycurl = 'https://app.faceki.com/v2/kyc-verification';
+         function sendImgeToKyc(doc_type1,doc1_frontImge,doc1_backImg,doc_type2,doc2_frontImge,doc2_backImg,doc_type3,doc3_frontImge,doc3_backImg,selfieImg) {
+ 
+             const kycurl = 'https://app.faceki.com/v2/multiple-kyc-verification';
+
              const data_auth = new FormData();
-             data_auth.append('doc_front_image', front_file);
-             data_auth.append('doc_back_image', back_file);
-             data_auth.append('selfie_image', file_img);
+
+             data_auth.append('doc_front_image1', doc1_frontImge);
+             data_auth.append('doc_back_image1', doc1_backImg);
+             data_auth.append('doc_type1', doc_type1);
+
+             data_auth.append('doc_front_image2', doc2_frontImge);
+             data_auth.append('doc_back_image2', doc2_backImg);
+             data_auth.append('doc_type2', doc_type2);
+
+             data_auth.append('doc_front_image3', doc3_frontImge);
+             data_auth.append('doc_back_image3', doc3_backImg);
+             data_auth.append('doc_type3', doc_type3);
+
+             data_auth.append('selfie_image', selfieImg);
+
              const req = new XMLHttpRequest();
 
              let auth_token = sessionStorage.getItem('auth_token');
@@ -386,22 +436,16 @@
                      console.log('server_response',this.response);
                      var resp = JSON.parse(this.response);
                      if (this.status == "200") {
-                         if (resp.result) {
-                             if(resp.verification.passed==true){
-                                 sessionStorage.setItem("score", resp.face.confidence);
-                                 sessionStorage.setItem("response_data", JSON.stringify(resp));
-                                 verifypage.style.opacity = 0;
-                                 successfullpage.style.display = "block";
-                                 location.href = "#successfullpage";
-                             }else if(resp.face.isIdentical==false){
-                                 alert('Face not identical.');
-                                 verifypage.style.display = "none";
-                                 selfiepage.style.display = "block";
-                                 button_callback2();
-                             }else{
+
+                         if (resp.status) {
+                            if(resp.status=='Accepted'){
+                                verifypage.style.opacity = 0;
+                                successfullpage.style.display = "block";
+                                location.href = "#successfullpage";
+                            }else{
                                 window.location.href=baseUrl+"idscaner";
-                             }
-                         }
+                            }
+                        }
 
                          if (resp.error.code) {
                              if (resp.error.code == 7) {

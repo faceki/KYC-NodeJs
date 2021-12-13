@@ -9,8 +9,8 @@ const newPath=pathUrlArray.join("/");
 
 const BASE_URL = "https://app.faceki.com/";
 data = JSON.stringify({
-    client_id:"af7d4790-04a9-11ec-aecf-1dca4d5eaaf0",
-    email:"demo@faceki.com",
+    client_id:"68bc3750-1474-11ec-b791-31084c6a9e50",
+    email:"zain@faceki.com",
 })
 fetch(BASE_URL+'getToken', {
     method: "POST",
@@ -38,21 +38,21 @@ fetch(BASE_URL+'getToken', {
 	    window.location.href=baseUrl+newPath+"/index.html";
 	}
 
-    var jpegFile64 = front_img.replace(/^data:image\/(png|jpeg);base64,/, "");
-    var jpegBlob = base64ToBlob(jpegFile64, 'image/png');
-    const frontImge = new File([jpegBlob], "filename-front.png",{ type: 'image/png' });
-
-    var bjpegFile64 = back_img.replace(/^data:image\/(png|jpeg);base64,/, "");
-    var bjpegBlob = base64ToBlob(bjpegFile64, 'image/png');
-    const backImg = new File([bjpegBlob], "filename-back.png",{ type: 'image/png' });
-
-    var sjpegFile64 = selfie_image.replace(/^data:image\/(png|jpeg);base64,/, "");
-    var sjpegBlob = base64ToBlob(sjpegFile64, 'image/png');
-    const selfieImg = new File([sjpegBlob], "filename-selfie.png",{ type: 'image/png' });
+    const frontImge = createFile(front_img);
+    const backImg = createFile(back_img);
+    const selfieImg = createFile(selfie_image);
 
     sendImgeToKyc(frontImge,backImg,selfieImg);
 
 });
+
+function createFile(imgData)
+{
+    var jpegFile64 = imgData.replace(/^data:image\/(png|jpeg);base64,/, "");
+    var jpegBlob = base64ToBlob(jpegFile64, 'image/png');
+    const imgFile = new File([jpegBlob], "filename-front.png",{ type: 'image/png' });
+    return imgFile;
+}
 
 function base64ToBlob(base64, mime)
 {
@@ -101,23 +101,22 @@ function sendImgeToKyc(front_file,back_file,file_img) {
             console.log('server_response',this.response);
             var resp = JSON.parse(this.response);
             if (this.status == "200") {
-                if (resp.result) {
-                    if(resp.face.confidence){
-                        sessionStorage.removeItem("front_img");
-                        sessionStorage.removeItem("back_img");
-                        sessionStorage.removeItem("auth_token");
-                        sessionStorage.setItem("score", resp.face.confidence);
-                        sessionStorage.setItem("response_data", JSON.stringify(resp));
-                        window.location.href=baseUrl+"successfull";
-                    }else if(resp.face.error){
-                        alert(resp.face.error);
-                        sessionStorage.setItem("face-error", 1);
-                        sessionStorage.setItem("face-error-msg", resp.face.error_message);
-                        sessionStorage.setItem("score", 0);
-                        window.location.href=baseUrl+"extra-check";
-                    }
-                    return;
-                }
+                 if (resp.result) {
+                     if(resp.verification.passed==true){
+                         sessionStorage.setItem("score", resp.face.confidence);
+                         sessionStorage.setItem("response_data", JSON.stringify(resp));
+                         verifypage.style.opacity = 0;
+                         successfullpage.style.display = "block";
+                         location.href = "#successfullpage";
+                     }else if(resp.face.isIdentical==false){
+                         alert('Face not identical.');
+                         verifypage.style.display = "none";
+                         selfiepage.style.display = "block";
+                         button_callback2();
+                     }else{
+                        window.location.href=baseUrl+"idscaner";
+                     }
+                 }
 
                 if (resp.error.code) {
                     if (resp.error.code == 7) {

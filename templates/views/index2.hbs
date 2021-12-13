@@ -33,24 +33,9 @@
                     <div class="faceki-card faceki-card-dark">
                         <h2 class="faceki-card__title">Verify Your Identity</h2>
                         <span class="faceki-card__sub-title">It will only take few seconds</span>
-                        <ul class="faceki-card__list">
-                            <li class="faceki-card__item">
-                                <span class="faceki-card__number">1</span>
-                               <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-front-dark.png" alt=""></div>
-                                <span>Scan ID front side</span>
-                            </li>
-                            <li class="faceki-card__item">
-                                <span class="faceki-card__number">2</span>
-                                <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-back-dark.png" alt=""></div>
-                                <span>Scan ID back side</span>
-                            </li>
-                            <li class="faceki-card__item">
-                                <span class="faceki-card__number">3</span>
-                                <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/user.png" alt=""></div>
-                                <span>Take a selfie picture</span>
-                            </li>
+                        <ul class="faceki-card__list" id="kyc_items">
                         </ul>
-                        <button onclick="getSdkSettings()" class="faceki-card__btn">START</button>
+                        <button onclick="goToScannerPage()" class="faceki-card__btn">START</button>
                     </div>
                 </div>
             </div>

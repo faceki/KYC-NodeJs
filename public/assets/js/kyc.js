@@ -1,5 +1,9 @@
 sessionStorage.removeItem("front_img");
 sessionStorage.removeItem("back_img");
+sessionStorage.removeItem("front_img_two");
+sessionStorage.removeItem("back_img_two");
+sessionStorage.removeItem("front_img_three");
+sessionStorage.removeItem("back_img_three");
 const pathUrl = window.location.pathname;
 const baseUrl = window.location.origin+"/";
 
@@ -11,6 +15,10 @@ var extrapage = document.getElementById("extrapage");
 
 var front_image='';
 var back_image='';
+var front_image_two='';
+var back_image_two='';
+var front_image_three='';
+var back_image_three='';
 var selfie_image='';
 let is_mobile_device = false;
 (function(a) {
@@ -29,6 +37,9 @@ let is_mobile_device = false;
         var confirm = document.getElementById('backpartbutton');
         var confirm2 = document.getElementById('backpartbutton2');
         var mediaStream = null;
+
+        var doc_type_one=sessionStorage.getItem("doc_type_one");
+        document.querySelector('.faceki-card__title').textContent = 'Scan your '+doc_type_one;
         // Prefer camera resolution nearest to 1280x720.
         var constraints = {
             audio: false,
@@ -98,16 +109,113 @@ let is_mobile_device = false;
                 var data = canvas.toDataURL('image/png');
                 photo.setAttribute('src', data);
                 var front_img=sessionStorage.getItem("front_img");
-                if(front_img=='' || front_img==null){
-                 sessionStorage.setItem("front_img",111);
-                 front_image=data;
-                 console.log('data111',sessionStorage.getItem("front_img"));
-                }else{
-                 sessionStorage.setItem("back_img",222);
-                 back_image=data;
-                 console.log('data222',sessionStorage.getItem("back_img"));  
-                 confirm.style.display = "none";
-                 confirm2.style.display = "inline-block";
+                var back_img=sessionStorage.getItem("back_img");
+                var front_img_two=sessionStorage.getItem("front_img_two");
+                var back_img_two=sessionStorage.getItem("back_img_two");
+                var front_img_three=sessionStorage.getItem("front_img_three");
+                var back_img_three=sessionStorage.getItem("back_img_three");
+
+                var number_of_doc=sessionStorage.getItem("number_of_doc");
+                var doc_type_one=sessionStorage.getItem("doc_type_one");
+                var doc_type_two=sessionStorage.getItem("doc_type_two");
+                var doc_type_three=sessionStorage.getItem("doc_type_three");
+
+                if(number_of_doc==1){
+                    if(front_img=='' || front_img==null){
+                     sessionStorage.setItem("front_img",111);
+                     front_image=data;
+                     console.log('data111',sessionStorage.getItem("front_img"));
+                         if(doc_type_one=='Passport'){
+                           sessionStorage.setItem("back_img",222);
+                           back_image=front_image
+                           confirm.style.display = "none";
+                           confirm2.style.display = "inline-block";
+                         }
+                    }else if(back_img=='' || back_img==null){
+                     sessionStorage.setItem("back_img",222);
+                     back_image=data;
+                     console.log('data222',sessionStorage.getItem("back_img"));
+                     confirm.style.display = "none";
+                     confirm2.style.display = "inline-block";
+                    }
+                }else if(number_of_doc==2){
+                    if(front_img=='' || front_img==null){
+                     sessionStorage.setItem("front_img",111);
+                     front_image=data;
+                     console.log('data111',sessionStorage.getItem("front_img"));
+                         if(doc_type_one=='Passport'){
+                           sessionStorage.setItem("back_img",222);
+                           back_image=front_image;
+                           console.log('data222',sessionStorage.getItem("back_img"));
+                         }
+                    }else if(back_img=='' || back_img==null){
+                     sessionStorage.setItem("back_img",222);
+                     back_image=data;
+                     console.log('data222',sessionStorage.getItem("back_img"));
+                    }else if(front_img_two=='' || front_img_two==null){
+                     sessionStorage.setItem("front_img_two",333);
+                     front_image_two=data;
+                     console.log('data333',sessionStorage.getItem("front_img_two"));
+                         if(doc_type_two=='Passport'){
+                           sessionStorage.setItem("back_img_two",444);
+                           back_image_two=front_image_two;
+                           console.log('data444',sessionStorage.getItem("back_img_two"));
+                           confirm.style.display = "none";
+                           confirm2.style.display = "inline-block";
+                         }
+                    }else if(back_img_two=='' || back_img_two==null){
+                     sessionStorage.setItem("back_img_two",444);
+                     back_image_two=data;
+                     console.log('data444',sessionStorage.getItem("back_img_two"));
+                     confirm.style.display = "none";
+                     confirm2.style.display = "inline-block";
+                    }
+
+                }else if(number_of_doc==3){
+                    if(front_img=='' || front_img==null){
+                     sessionStorage.setItem("front_img",111);
+                     front_image=data;
+                     console.log('data111',sessionStorage.getItem("front_img"));
+                         if(doc_type_one=='Passport'){
+                           sessionStorage.setItem("back_img",222);
+                           back_image=front_image;
+                           console.log('data222',sessionStorage.getItem("back_img"));
+                         }
+                    }else if(back_img=='' || back_img==null){
+                     sessionStorage.setItem("back_img",222);
+                     back_image=data;
+                     console.log('data222',sessionStorage.getItem("back_img"));
+                    }else if(front_img_two=='' || front_img_two==null){
+                     sessionStorage.setItem("front_img_two",333);
+                     front_image_two=data;
+                     console.log('data333',sessionStorage.getItem("front_img_two"));
+                           if(doc_type_two=='Passport'){
+                               sessionStorage.setItem("back_img_two",444);
+                               back_image_two=front_image_two;
+                               console.log('data444',sessionStorage.getItem("back_img_two"));
+                           }
+                    }else if(back_img_two=='' || back_img_two==null){
+                     sessionStorage.setItem("back_img_two",444);
+                     back_image_two=data;
+                     console.log('data444',sessionStorage.getItem("back_img_two"));
+                    }else if(front_img_three=='' || front_img_three==null){
+                     sessionStorage.setItem("front_img_three",555);
+                     front_image_three=data;
+                     console.log('data555',sessionStorage.getItem("front_img_three"));
+                            if(doc_type_three=='Passport'){
+                               sessionStorage.setItem("back_img_three",666);
+                               back_image_three=front_image_three;
+                               console.log('data666',sessionStorage.getItem("back_img_three"));
+                               confirm.style.display = "none";
+                               confirm2.style.display = "inline-block";
+                           }
+                    }else{
+                     sessionStorage.setItem("back_img_three",666);
+                     back_image_three=data;
+                     console.log('data666',sessionStorage.getItem("back_img_three"));  
+                     confirm.style.display = "none";
+                     confirm2.style.display = "inline-block";
+                    }
                 }
             } else {
                 clearphoto();
@@ -154,8 +262,44 @@ let is_mobile_device = false;
         );
 
         confirm.addEventListener("click", function(ev) {
-              document.querySelector('.faceki-card__img').src = 'assets/img/user-info/id-back-light.png';
-              document.querySelector('.title').textContent = 'BACK SIDE';
+                var number_of_doc=sessionStorage.getItem("number_of_doc");
+                var doc_type_one=sessionStorage.getItem("doc_type_one");
+                var doc_type_two=sessionStorage.getItem("doc_type_two");
+                var doc_type_three=sessionStorage.getItem("doc_type_three");
+
+                var front_img=sessionStorage.getItem("front_img");
+                var back_img=sessionStorage.getItem("back_img");
+                var front_img_two=sessionStorage.getItem("front_img_two");
+                var back_img_two=sessionStorage.getItem("back_img_two");
+                var front_img_three=sessionStorage.getItem("front_img_three");
+                var back_img_three=sessionStorage.getItem("back_img_three");
+
+                if(front_img=='' || front_img==null){
+                   //alert(1);
+                }else if(back_img=='' || back_img==null){
+                   //alert(2);
+                   document.querySelector('.faceki-card__img').src = 'assets/img/user-info/id-back-light.png';
+                   document.querySelector('.title').textContent = 'BACK SIDE';
+                }else if(front_img_two=='' || front_img_two==null){
+                   //alert(3);
+                   document.querySelector('.faceki-card__img').src = 'assets/img/user-info/id-front-light.png';
+                   document.querySelector('.faceki-card__title').textContent = 'Scan your '+doc_type_two;
+                   document.querySelector('.title').textContent = 'FRONT SIDE';
+                }else if(back_img_two=='' || back_img_two==null){
+                   //alert(4);
+                   document.querySelector('.faceki-card__img').src = 'assets/img/user-info/id-back-light.png';
+                   document.querySelector('.title').textContent = 'BACK SIDE';
+                }else if(front_img_three=='' || front_img_three==null){
+                   //alert(5);
+                   document.querySelector('.faceki-card__img').src = 'assets/img/user-info/id-front-light.png';
+                   document.querySelector('.faceki-card__title').textContent = 'Scan your '+doc_type_three;
+                   document.querySelector('.title').textContent = 'FRONT SIDE';
+                }else{
+                   //alert(6);
+                   document.querySelector('.faceki-card__img').src = 'assets/img/user-info/id-back-light.png';
+                   document.querySelector('.title').textContent = 'BACK SIDE';
+                }
+
               result.style.opacity = "0";
               result.style.visibility = "hidden";
               camera.style.opacity = "1";
