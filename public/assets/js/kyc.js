@@ -106,7 +106,11 @@ var is_mobile_device = false;
                 canvas.width = width;
                 canvas.height = height;
                 context.drawImage(video, 0, 0, width, height);
+                if(is_mobile_device==true){
+                var data = canvas.toDataURL('image/png', 0.5);
+                }else{
                 var data = canvas.toDataURL('image/png', 1.0);
+                }
                 photo.setAttribute('src', data);
                 var front_img=sessionStorage.getItem("front_img");
                 var back_img=sessionStorage.getItem("back_img");

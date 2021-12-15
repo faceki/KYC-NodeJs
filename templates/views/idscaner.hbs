@@ -278,7 +278,11 @@
           canvas.width = vid.videoWidth;
           canvas.height = vid.videoHeight;
           ctx.drawImage(vid, 0, 0);
-          imageData = canvas.toDataURL("image/png", 1.0);
+          if(is_mobile_device==true){
+           var imageData = canvas.toDataURL("image/png", 0.5);
+          }else{
+           var imageData = canvas.toDataURL("image/png", 1.0);
+          }
           sessionStorage.setItem("selfie_image", 333);
           selfie_image=imageData;
           console.log('data333',sessionStorage.getItem("selfie_image"));
