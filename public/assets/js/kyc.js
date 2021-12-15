@@ -107,7 +107,7 @@ var is_mobile_device = false;
                 canvas.height = height;
                 context.drawImage(video, 0, 0, width, height);
                 if(is_mobile_device==true){
-                var data = canvas.toDataURL('image/png', 0.5);
+                var data = canvas.toDataURL('image/png', 0.7);
                 }else{
                 var data = canvas.toDataURL('image/png', 1.0);
                 }

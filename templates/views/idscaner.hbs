@@ -279,7 +279,7 @@
           canvas.height = vid.videoHeight;
           ctx.drawImage(vid, 0, 0);
           if(is_mobile_device==true){
-           var imageData = canvas.toDataURL("image/png", 0.5);
+           var imageData = canvas.toDataURL("image/png", 0.7);
           }else{
            var imageData = canvas.toDataURL("image/png", 1.0);
           }
@@ -453,9 +453,8 @@
                             }else{
                                 window.location.href=baseUrl+"idscaner";
                             }
-                         }
-
-                         if (resp.error.code) {
+                         }else{
+                            if (resp.error.code) {
                              if (resp.error.code == 7) {
                                  alert(resp.error.message);
                                  verifypage.style.display = "none";
@@ -469,7 +468,8 @@
                                  selfiepage.style.display = "block";
                                  button_callback2();
                              }
-                         }             
+                            }
+                         }
                      }else {
                          alert(resp.message);
                          if(resp.message=='Face not matched!'){
