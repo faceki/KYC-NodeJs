@@ -279,7 +279,7 @@
           canvas.height = vid.videoHeight;
           ctx.drawImage(vid, 0, 0);
           if(is_mobile_device==true){
-           var imageData = canvas.toDataURL("image/png", 0.7);
+           var imageData = canvas.toDataURL("image/png", 0.4);
           }else{
            var imageData = canvas.toDataURL("image/png", 1.0);
           }
@@ -446,10 +446,16 @@
                                 verifypage.style.opacity = 0;
                                 successfullpage.style.display = "block";
                                 location.href = "#successfullpage";
+                                setTimeout(function(){ 
+                                    window.location.href=baseUrl;
+                                }, 5000);
                             }else if(resp.status=='Decliend'){
                                 verifypage.style.opacity = 0;
                                 extrapage.style.display = "block";
                                 location.href = "#extrapage";
+                                setTimeout(function(){ 
+                                    window.location.href=baseUrl;
+                                }, 5000);
                             }else{
                                 window.location.href=baseUrl+"idscaner";
                             }
