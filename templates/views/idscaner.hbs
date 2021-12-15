@@ -278,12 +278,12 @@
           canvas.width = vid.videoWidth;
           canvas.height = vid.videoHeight;
           ctx.drawImage(vid, 0, 0);
-          imageData = canvas.toDataURL("image/jpeg", 1.0);
+          imageData = canvas.toDataURL("image/png", 1.0);
           sessionStorage.setItem("selfie_image", 333);
           selfie_image=imageData;
           console.log('data333',sessionStorage.getItem("selfie_image"));
           return new Promise((res, rej) => {
-            canvas.toBlob(res, "image/jpeg");
+            canvas.toBlob(res, "image/png");
           });
         }
 
@@ -330,48 +330,48 @@
 
    
                 var doc1_jpegFile64 = front_image.replace(/^data:image\/(png|jpeg);base64,/, "");
-                var doc1_jpegBlob = base64ToBlob(doc1_jpegFile64, 'image/jpeg');
-                var doc1_frontImge = new File([doc1_jpegBlob], "filename-front.jpeg",{ type: 'image/jpeg' });
+                var doc1_jpegBlob = base64ToBlob(doc1_jpegFile64, 'image/png');
+                var doc1_frontImge = new File([doc1_jpegBlob], "filename-front.png",{ type: 'image/png' });
 
                 var doc1_bjpegFile64 = back_image.replace(/^data:image\/(png|jpeg);base64,/, "");
-                var doc1_bjpegBlob = base64ToBlob(doc1_bjpegFile64, 'image/jpeg');
-                var doc1_backImg = new File([doc1_bjpegBlob], "filename-back.jpeg",{ type: 'image/jpeg' });
+                var doc1_bjpegBlob = base64ToBlob(doc1_bjpegFile64, 'image/png');
+                var doc1_backImg = new File([doc1_bjpegBlob], "filename-back.png",{ type: 'image/png' });
 
                 if (front_image_two != '' && front_image_two != null) {
                     var doc2_jpegFile64 = front_image_two.replace(/^data:image\/(png|jpeg);base64,/, "");
-                    var doc2_jpegBlob = base64ToBlob(doc2_jpegFile64, 'image/jpeg');
-                    var doc2_frontImge = new File([doc2_jpegBlob], "filename-front.jpeg",{ type: 'image/jpeg' });
+                    var doc2_jpegBlob = base64ToBlob(doc2_jpegFile64, 'image/png');
+                    var doc2_frontImge = new File([doc2_jpegBlob], "filename-front2.png",{ type: 'image/png' });
                 }else{
                  var doc2_frontImge ='';
                 }
 
                 if (back_image_two != '' && back_image_two != null) {
                     var doc2_bjpegFile64 = back_image_two.replace(/^data:image\/(png|jpeg);base64,/, "");
-                    var doc2_bjpegBlob = base64ToBlob(doc2_bjpegFile64, 'image/jpeg');
-                    var doc2_backImg = new File([doc2_bjpegBlob], "filename-back.jpeg",{ type: 'image/jpeg' });
+                    var doc2_bjpegBlob = base64ToBlob(doc2_bjpegFile64, 'image/png');
+                    var doc2_backImg = new File([doc2_bjpegBlob], "filename-back2.png",{ type: 'image/png' });
                 }else{
                  var doc2_backImg ='';
                 }
 
                 if (front_image_three != '' && front_image_three != null) {
                     var doc3_jpegFile64 = front_image_three.replace(/^data:image\/(png|jpeg);base64,/, "");
-                    var doc3_jpegBlob = base64ToBlob(doc3_jpegFile64, 'image/jpeg');
-                    var doc3_frontImge = new File([doc3_jpegBlob], "filename-front.jpeg",{ type: 'image/jpeg' });
+                    var doc3_jpegBlob = base64ToBlob(doc3_jpegFile64, 'image/png');
+                    var doc3_frontImge = new File([doc3_jpegBlob], "filename-front3.png",{ type: 'image/png' });
                 }else{
                  var doc3_frontImge ='';
                 }
 
                 if (back_image_three != '' && back_image_three != null) {
                     var doc3_bjpegFile64 = back_image_three.replace(/^data:image\/(png|jpeg);base64,/, "");
-                    var doc3_bjpegBlob = base64ToBlob(doc3_bjpegFile64, 'image/jpeg');
-                    var doc3_backImg = new File([doc3_bjpegBlob], "filename-back.jpeg",{ type: 'image/jpeg' });
+                    var doc3_bjpegBlob = base64ToBlob(doc3_bjpegFile64, 'image/png');
+                    var doc3_backImg = new File([doc3_bjpegBlob], "filename-back3.png",{ type: 'image/png' });
                 }else{
                  var doc3_backImg ='';
                 }
 
                 var sjpegFile64 = selfie_image.replace(/^data:image\/(png|jpeg);base64,/, "");
-                var sjpegBlob = base64ToBlob(sjpegFile64, 'image/jpeg');
-                var selfieImg = new File([sjpegBlob], "filename-selfie.jpeg",{ type: 'image/jpeg' });
+                var sjpegBlob = base64ToBlob(sjpegFile64, 'image/png');
+                var selfieImg = new File([sjpegBlob], "filename-selfie.png",{ type: 'image/png' });
 
                 sendImgeToKyc(doc_type1,doc1_frontImge,doc1_backImg,doc_type2,doc2_frontImge,doc2_backImg,doc_type3,doc3_frontImge,doc3_backImg,selfieImg);
 
