@@ -184,9 +184,6 @@
             <div class="row">
                 <div class="col-sm-10 col-lg-6 col-xl-5 mx-auto">
                     <div class="faceki-card faceki-card-dark success__card">
-                        <img src="" id="front_imagg"  height="200px;" width="200px;">
-                        <img src="" id="back_imagg"  height="200px;" width="200px;">
-                        <img src="" id="selfie_imagg"  height="200px;" width="200px;">
                         <span class="faceki-card__sub-title">Verifying your identity...</span>
                         <img  src="/assets/img/icon/Faceki-Verifing-animation2.gif" alt="Verifying...">
                         <span class="extra-information">It will take few seconds only</span>
@@ -328,11 +325,7 @@
                 return response.json()
             }).then(function(res){
 
-               //console.log('selfie_image',selfie_image);
-               
-               document.getElementById('front_imagg').src=front_image;
-               document.getElementById('back_imagg').src=back_image;
-               document.getElementById('selfie_imagg').src=selfie_image;
+               console.log('selfie_image',selfie_image);
 
                sessionStorage.setItem("auth_token", res.token);
 
