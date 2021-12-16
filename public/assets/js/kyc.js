@@ -322,8 +322,7 @@ var is_mobile_device = false;
         );
 
         function button_callback() {
-          var video = document.getElementById("video2");
-
+          var video2 = document.getElementById("video2");
           var selfie_constraints = {
             audio: false,
             video: {
@@ -345,11 +344,11 @@ var is_mobile_device = false;
                     }
                })
               .then(function (stream) {
-                video.srcObject = stream;
-                video.setAttribute("autoplay", "");
-                video.setAttribute("muted", "");
-                video.setAttribute("playsinline", "");
-                video.play();
+                video2.srcObject = stream;
+                video2.setAttribute("autoplay", "");
+                video2.setAttribute("muted", "");
+                video2.setAttribute("playsinline", "");
+                video2.play();
               })
               .catch(function (err0r) {
                 console.log("Something went wrong!");

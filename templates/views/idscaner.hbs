@@ -247,27 +247,33 @@
 
       <script>
         function button_callback2() {
-          var video = document.getElementById("video2");
+          var video2 = document.getElementById("video2");
+          var selfie_constraints = {
+            audio: false,
+            video: {
+                width: {
+                    ideal: (is_mobile_device==true)?1280:1920
+                },
+                height: {
+                    ideal: (is_mobile_device==true)?720:1080
+                },
+                facingMode: "user"
+            },
+          };
+
           if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             navigator.mediaDevices
-              .getUserMedia({
-                video: true,
-                video: {
-                  width: {
-                    ideal: (is_mobile_device==true)?1280:1920,
-                  },
-                  height: {
-                    ideal: (is_mobile_device==true)?720:1080,
-                  },
-                  facingMode: "user",
-                },
-              })
+              .getUserMedia(selfie_constraints, {
+                    video: {
+                        facingMode: 'user'
+                    }
+               })
               .then(function (stream) {
-                video.srcObject = stream;
-                video.setAttribute("autoplay", "");
-                video.setAttribute("muted", "");
-                video.setAttribute("playsinline", "");
-                video.play();
+                video2.srcObject = stream;
+                video2.setAttribute("autoplay", "");
+                video2.setAttribute("muted", "");
+                video2.setAttribute("playsinline", "");
+                video2.play();
               })
               .catch(function (err0r) {
                 console.log("Something went wrong!");
@@ -297,8 +303,8 @@
         function callApi(img_type){
             //document.getElementById('video2').style.display = "none";
             //document.getElementById('capture').style.display = "none";
-            video.pause(); 
-            takeASnap(video).then(blob =>{
+            video2.pause(); 
+            takeASnap(video2).then(blob =>{
                selfiepage.style.display = "none";
                verifypage.style.display = "block";
                getToken();
