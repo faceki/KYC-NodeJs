@@ -13,6 +13,13 @@ var verifypage = document.getElementById("verifypage");
 var successfullpage = document.getElementById("successfullpage");
 var extrapage = document.getElementById("extrapage");
 
+var success_meaasge= sessionStorage.getItem("success_meaasge");
+var success_redirect_url= sessionStorage.getItem("success_redirect_url");
+var declined_meaasge= sessionStorage.getItem("declined_meaasge");
+var declined_redirect_url= sessionStorage.getItem("declined_redirect_url");
+var invalid_meaasge= sessionStorage.getItem("invalid_meaasge");
+var invalid_redirect_url= sessionStorage.getItem("invalid_redirect_url");
+
 var front_image='';
 var back_image='';
 var front_image_two='';
