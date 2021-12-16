@@ -323,20 +323,27 @@ var is_mobile_device = false;
 
         function button_callback() {
           var video = document.getElementById("video2");
+
+          var selfie_constraints = {
+            audio: false,
+            video: {
+                width: {
+                    ideal: (is_mobile_device==true)?1280:1920
+                },
+                height: {
+                    ideal: (is_mobile_device==true)?720:1080
+                },
+                facingMode: "user"
+            },
+          };
+
           if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             navigator.mediaDevices
-              .getUserMedia({
-                video: true,
-                video: {
-                  width: {
-                    ideal: 1920,
-                  },
-                  height: {
-                    ideal: 1080,
-                  },
-                  facingMode: "user",
-                },
-              })
+              .getUserMedia(selfie_constraints, {
+                    video: {
+                        facingMode: 'user'
+                    }
+               })
               .then(function (stream) {
                 video.srcObject = stream;
                 video.setAttribute("autoplay", "");
