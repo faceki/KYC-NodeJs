@@ -7,6 +7,9 @@ sessionStorage.removeItem("back_img_three");
 const pathUrl = window.location.pathname;
 const baseUrl = window.location.origin+"/";
 
+var client_id = sessionStorage.getItem("client_id");
+var client_email = sessionStorage.getItem("client_email");
+
 var idscannerpage = document.getElementById("idscannerpage");
 var selfiepage = document.getElementById("selfiepage");
 var verifypage = document.getElementById("verifypage");

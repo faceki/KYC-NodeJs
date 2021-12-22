@@ -7,10 +7,13 @@ var pathUrlArray = pathUrlArray1.filter(function (el) {
 pathUrlArray.pop();
 const newPath=pathUrlArray.join("/");
 
+var client_id = sessionStorage.getItem("client_id");
+var client_email = sessionStorage.getItem("client_email");
+
 const BASE_URL = "https://app.faceki.com/";
 data = JSON.stringify({
-    client_id:"68bc3750-1474-11ec-b791-31084c6a9e50",
-    email:"zain@faceki.com",
+    client_id: client_id,
+    email: client_email,
 })
 fetch(BASE_URL+'getToken', {
     method: "POST",

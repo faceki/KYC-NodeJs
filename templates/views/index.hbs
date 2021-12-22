@@ -1,93 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Faceki</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" type="text/css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="id varification app" />
+    <title>Faceki</title>
+    <!-- Favicon -->
+    <!--  Google font cdn link -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!--  all css files  -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
 </head>
-<body class="mb-body">
-  <!--header-->
-  <header class="bg-dark">
-    <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-12 col-xs-12">
-            <div class="text-right">
-              <a class="navbar-brand" href="/">
-                <img src="/image/logo.png" alt="Logo">
-              </a>
+
+
+<body>
+
+    <!-- faceki section start -->
+    <section style="height: 100vh;" class="faceki-section d-flex flex-wrap align-items-center justify-content-center w-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-lg-6 col-xl-5 mx-auto">
+                    <div class="faceki-card faceki-card-dark">
+                        <h2 class="faceki-card__title">Verify Your Identity</h2>
+                        <span class="faceki-card__sub-title">It will only take few seconds</span>
+                        <ul class="faceki-card__list" id="kyc_items">
+                        </ul>
+                        <button onclick="goToScannerPage()" class="faceki-card__btn">START</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-  </header>
-  <!--header-end-->
-<div class="signup">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-xs-12">
-        <div class="user-signup">
-          <a href="javascript:void(0)" onclick="getToken('68bc3750-1474-11ec-b791-31084c6a9e50','zain@faceki.com','signup');">
-           <p>Don't have a FACEKI account?</p>
-        <!--    <div class="signup-btn">
-             <div class="row">
-               <div class="col-sm-6 col-xs-6">
-                 <img src="/image/id-logo.png" alt="logo">
-               </div>
-               <div class="col-sm-6 col-xs-6">
-                 <h1>Sing up</h1>
-               </div>
-             </div>
-           </div> -->
-         </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    </section>
+    <!-- faceki section end -->
 
-<div class="biometric-authentication">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-xs-12">
-        <div class="biometric-login">
-          <a href="login">
-           <img src="/image/face-scane.png" alt="face-scane">
-           <h1>Biometric Authentication</h1>
-           <h2>Customer Onboarding & Sign-in</h2>
-         </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="biometric-authentication id-card">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-xs-12">
-        <div class="biometric-login">
-          <a href="kyc">
-           <img src="/image/id-card.png" alt="Id-scane">
-           <h1>Digital KYC</h1>
-           <h2>ID Verification</h2>
-         </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-  <!--Script-Start-->
-  <script src="js/jquery-3.3.1.slim.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/faceki-startup.js"></script>
-  <!--Script-End-->
+    <!--  all js files -->
+    <script src="/assets/js/faceki-startup.js"></script>
 </body>
 
 </html>

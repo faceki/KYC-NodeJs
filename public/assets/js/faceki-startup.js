@@ -1,24 +1,12 @@
 const client_id='68bc3750-1474-11ec-b791-31084c6a9e50';
+const client_email='zain@faceki.com';
+sessionStorage.setItem("client_id",client_id);
+sessionStorage.setItem("client_email",client_email);
 const API_URL = "https://faceki.com/backend/api/sdk-settings?client_id="+client_id;
 const pathUrl = window.location.pathname;
 const baseUrl = window.location.origin+"/";
 
 document.getElementById("kyc_items").innerHTML = '<img src="/assets/img/icon/loader.gif">'; 
-
-// sessionStorage.setItem("number_of_doc",1);
-// sessionStorage.setItem("doc_type_one",'ID Card');
-// sessionStorage.setItem("doc_type_two",'Passport');
-// sessionStorage.setItem("doc_type_three",'Driving License');
-// sessionStorage.setItem("success_meaasge",'success');
-// sessionStorage.setItem("success_redirect_url",'');
-// sessionStorage.setItem("declined_meaasge",'decliend');
-// sessionStorage.setItem("declined_redirect_url",'');
-// sessionStorage.setItem("invalid_meaasge",'invalid');
-// sessionStorage.setItem("invalid_redirect_url",'');
-
-// setTimeout(function(){ 
-//     set_sdk_html();
-// }, 3000);
 
 fetch(API_URL)
 .then(response => {
@@ -40,7 +28,6 @@ fetch(API_URL)
 .catch(error => {
 console.log(error);
 });
-
 
 function set_sdk_html(){
 

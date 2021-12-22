@@ -38,7 +38,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('',(req, res)=>{
-    res.render('index2')
+    res.render('index')
 })
 
 app.get('/idscaner',(req, res)=>{
@@ -61,114 +61,6 @@ app.get('/extra-check',(req, res)=>{
     res.render('extra-check')
 })
 
-
-app.get('/login',(req, res)=>{
-    res.render('login')
-})
-app.get('/face-scane',(req, res)=>{
-    res.render('face-scane')
-})
-app.get('/kyc',(req, res)=>{
-    res.render('kyc')
-})
-app.get('/idscane-front',(req, res)=>{
-    res.render('idscane-front')
-})
-app.get('/idscane-back',(req, res)=>{
-    res.render('idscane-back')
-})
-app.get('/driving-front',(req, res)=>{
-    res.render('idscane-front')
-})
-app.get('/driving-back',(req, res)=>{
-    res.render('idscane-back')
-})
-app.get('/passport-front',(req, res)=>{
-    res.render('idscane-front')
-})
-app.get('/passport-back',(req, res)=>{
-    res.render('idscane-back')
-})
-app.get('/take-selfie-old',(req, res)=>{
-    res.render('take-selfie-old')
-})
-app.get('/kyc-result',(req, res)=>{
-    res.render('kyc-result')
-})
-app.get('/kyc-success',(req, res)=>{
-    res.render('kyc-success')
-})
-app.get('/kyc-declined',(req, res)=>{
-    res.render('kyc-declined')
-})
-app.get('/kyc-error',(req, res)=>{
-    res.render('kyc-error')
-})
-app.get('/faceki-sign-in',(req, res)=>{
-    res.render('faceki-sign-in',{
-        title:'Faceki Login',
-        name: 'Faceki'
-    })
-})
-app.get('/faceki-sign-up',(req, res)=>{
-    res.render('faceki-sign-up',{
-        title:'Faceki Signup',
-        name: 'Faceki'
-    })
-})
-app.get('/faceki-request-a-sign-in',(req, res)=>{
-    res.render('faceki-request-a-sign-in',{
-        title:'Request Sigin',
-        name: 'Faceki'
-    })
-})
-app.get('/faceki-request-a-sign-in-pending',(req, res)=>{
-    res.render('faceki-request-a-sign-in-pending',{
-        title:'Request Sigin',
-        name: 'Faceki'
-    })
-})
-app.get('/dashboard',async (req, res)=>{
-    try{
-        //var user = await User.findByFaceId(req.query.id)
-        res.render('faceki-sign-in-complete',{
-            title: 'success'
-        })
-    }catch (e){
-        res.render('error',{
-            title:'Some error Occured',
-            name: 'Faceki'
-        })
-    }
-})
-app.get('/lowquality',(req, res)=>{
-    res.render('lowquality',{
-        title: 'Low Quality Photo',
-        desc:"Quality of photo is not good please try again..",
-        name:'Faceki'
-    })
-})
-app.get('/loginfailed',(req, res)=>{
-    res.render('error',{
-        title: 'Login Failed',
-        desc:"You are not Authenticated to login into the account.",
-        name:'Faceki'
-    })
-})
-app.get('/facedistance',(req, res)=>{
-    res.render('facedistance',{
-        title: 'Face is far from camera',
-        desc:"Bring your eye more closer to the camera.",
-        name:'Faceki'
-    })
-})
-app.get('/error',(req, res)=>{
-    res.render('error',{
-        title: 'Not live photo',
-        desc:"You are not Authenticated to login into the account.",
-        name:'Faceki'
-    })
-})
 app.listen(port,()=>{
     console.log('Server is up on port '+ port)
 })
