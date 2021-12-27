@@ -808,9 +808,8 @@ span {
     margin-left: auto;
     margin-right: auto;
     min-height: 500px;
-
-    margin-top: 200px;
-    margin-bottom: 200px;
+    margin-top: 100px;
+    //margin-bottom: 200px;
   }
 }
 
