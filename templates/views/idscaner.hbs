@@ -323,11 +323,10 @@
             }).then(response=>{
                 return response.json()
             }).then(function(res){
-
+               console.log('front_image',front_image);
+               console.log('back_image',back_image);
                console.log('selfie_image',selfie_image);
-
                sessionStorage.setItem("auth_token", res.token);
-
                if (front_image == '' || front_image == null) {
                    alert('Please take Id Card front image first!!');
                    window.location.href=baseUrl+"idscaner";

@@ -16,12 +16,21 @@ var verifypage = document.getElementById("verifypage");
 var successfullpage = document.getElementById("successfullpage");
 var extrapage = document.getElementById("extrapage");
 
+var number_of_doc=sessionStorage.getItem("number_of_doc");
+var doc_type_one=sessionStorage.getItem("doc_type_one");
+var doc_type_two=sessionStorage.getItem("doc_type_two");
+var doc_type_three=sessionStorage.getItem("doc_type_three");
 var success_meaasge= sessionStorage.getItem("success_meaasge");
 var success_redirect_url= sessionStorage.getItem("success_redirect_url");
 var declined_meaasge= sessionStorage.getItem("declined_meaasge");
 var declined_redirect_url= sessionStorage.getItem("declined_redirect_url");
 var invalid_meaasge= sessionStorage.getItem("invalid_meaasge");
 var invalid_redirect_url= sessionStorage.getItem("invalid_redirect_url");
+
+var widthOfCrop = 500; // width of frame where we have to fit ID for desktop
+var heightOfCrop = 300; // height of frame where we have to fit ID for desktop
+var xCrop = 390; // x axis distance of where we start cropping
+var yCrop = 195; // y axis distance of where we start cropping
 
 var front_image='';
 var back_image='';
@@ -113,26 +122,33 @@ var is_mobile_device = false;
             const height = video.videoHeight;
             const width = video.videoWidth;
             if (width && height) {
-                canvas.width = width;
-                canvas.height = height;
-                context.drawImage(video, 0, 0, width, height);
+
                 if(is_mobile_device==true){
-                var data = canvas.toDataURL('image/png', 0.7);
+                    canvas.width = width;
+                    canvas.height = height;
+                    context.drawImage(video, 0, 0, width, height);
+                    var data = canvas.toDataURL('image/png', 0.7);
+                    photo.setAttribute('src', data);
                 }else{
-                var data = canvas.toDataURL('image/png', 1.0);
+                    canvas.width = width;
+                    canvas.height = height;
+                    context.drawImage(video, 0, 0, width, height);
+                    var data = canvas.toDataURL('image/png', 1.0);
+                    photo.setAttribute('src', data);
+
+                    canvas.width = widthOfCrop;
+                    canvas.height = heightOfCrop;
+                    context.drawImage(video, xCrop, yCrop, widthOfCrop, heightOfCrop, 0, 0, widthOfCrop, heightOfCrop);
+                    var data = canvas.toDataURL('image/png', 1.0);
+                    //console.log('doc_data',data);
                 }
-                photo.setAttribute('src', data);
+
                 var front_img=sessionStorage.getItem("front_img");
                 var back_img=sessionStorage.getItem("back_img");
                 var front_img_two=sessionStorage.getItem("front_img_two");
                 var back_img_two=sessionStorage.getItem("back_img_two");
                 var front_img_three=sessionStorage.getItem("front_img_three");
                 var back_img_three=sessionStorage.getItem("back_img_three");
-
-                var number_of_doc=sessionStorage.getItem("number_of_doc");
-                var doc_type_one=sessionStorage.getItem("doc_type_one");
-                var doc_type_two=sessionStorage.getItem("doc_type_two");
-                var doc_type_three=sessionStorage.getItem("doc_type_three");
 
                 if(number_of_doc==1){
                     if(front_img=='' || front_img==null){
