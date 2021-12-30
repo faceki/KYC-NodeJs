@@ -2,6 +2,8 @@
 ![KYC Image](https://faceki.com/test/photo/Screen2.png)
 ![KYC Image](https://faceki.com/test/photo/Screen3.png)
 
+[Download Adobe .XD files for this project](https://faceki.com/test/photo/Faceki-kyc.xd)
+
 <h1>#Faceki Platform Node.js official SDK</h1>
 
 Welcome to Faceki Official Node.js integrations instructions.
