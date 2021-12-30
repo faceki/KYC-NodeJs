@@ -57,3 +57,10 @@ npm install
 node src/index
 ```
 
+<h1>SDK Setting</h1>
+* Login to Dashboard https://faceki.com/backend >> Integrations >> SDK Setting 
+* To control number of document and results based on the ID reauirements
+
+<h1>Verifications Setting</h1>
+* Login to Dashboard https://faceki.com/backend >> Verifications >> Verification Setting 
+* To control Data Storage and Invalid Status Setting
