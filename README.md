@@ -1,3 +1,7 @@
+![KYC Image](https://faceki.com/test/photo/Screen1.png)
+![KYC Image](https://faceki.com/test/photo/Screen2.png)
+![KYC Image](https://faceki.com/test/photo/Screen3.png)
+
 <h1>#Faceki Platform Node.js official SDK</h1>
 
 Welcome to Faceki Official Node.js integrations instructions.
