@@ -38,7 +38,7 @@ Run npm install
 ```
 
 ```
-yarn --version
+yarn install
 ```
 
 <h1>Faceki SDK Setup</h1>
