@@ -66,3 +66,6 @@ node src/index
 * Login to Dashboard https://faceki.com/backend >> Verifications >> Verification Setting 
 
 * To control Data Storage and Invalid Status Setting
+
+
+**If you dont have an account, you can register FREE KYC verification from the link https://faceki.com/identity-verification-prices/ 
