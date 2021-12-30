@@ -6,6 +6,7 @@ Node. js brings event-driven programming to web servers, enabling development of
 
 Please refer to GetStarted and Quickguides documents. 
 
+
 <i>This project is currently in V1.0 Stable version. </i>
 
 Let's Get your HTML running with Faceki Node.js SDK 
@@ -21,4 +22,15 @@ Google Keyworks "How to install NodeJs"
 
 The Faceki SDK can be added as a dependency to your Node.js project using either
 
-<h1>#Faceki Platform Node.js official SDK</h1>
+<h1>Faceki Node.js Installation</h1>
+
+* Download codes from GitHub
+* Or Fork Codes to your Repostory 
+* Or Clone the repository to a local directory
+* Compress the codes 
+```
+* Run npm install
+```
+
+
+
