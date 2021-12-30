@@ -36,7 +36,7 @@ The Faceki SDK can be added as a dependency to your Node.js project using either
 * Compress the codes 
 * The SDK can be added as a dependency to your Node.js project using either
 ```
-Run npm install
+npm install
 ```
 
 ```
@@ -50,10 +50,10 @@ yarn install
 * Change "client_id" and "client_email" in public/js/faceki-startup.js
 
 ```
-Run "npm install"
+npm install
 ```
 
 ```
-Run "node src/index"
+node src/index
 ```
 
