@@ -38,8 +38,16 @@ yarn --version
 ```
 
 <h1>Faceki SDK Setup</h1>
+
 * Compress zip folder and keep all files on root folder
+
 * Change "client_id" and "client_email" in public/js/faceki-startup.js
-* Run "npm install"
-* Run "node src/index"
+
+```
+Run "npm install"
+```
+
+```
+Run "node src/index"
+```
 
