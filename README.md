@@ -19,7 +19,7 @@ Let's Get your HTML running with Faceki Node.js SDK
 
 <h1>Node.js Installation</h1>
 
-Refer to the Node.JS webiste for download and installations https://nodejs.org/en/download/package-manager/ 
+Refer to the Node.JS website for download and installations https://nodejs.org/en/download/package-manager/ 
 https://nodejs.org/en/download/ 
 
 Other source https://nodesource.com/blog/installing-nodejs-tutorial-windows/ 
