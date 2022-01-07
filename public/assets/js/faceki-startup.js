@@ -18,11 +18,23 @@ fetch(API_URL)
     sessionStorage.setItem("doc_type_two",res.response.doc_type_two);
     sessionStorage.setItem("doc_type_three",res.response.doc_type_three);
     sessionStorage.setItem("success_meaasge",res.response.success_meaasge);
-    sessionStorage.setItem("success_redirect_url",res.response.success_redirect_url);
+    var success_redirect_url=res.response.success_redirect_url;
+    if (success_redirect_url.indexOf("http://") == -1 && success_redirect_url.indexOf("https://") == -1) {
+       success_redirect_url="https://"+success_redirect_url;
+    }
+    sessionStorage.setItem("success_redirect_url",success_redirect_url);
     sessionStorage.setItem("declined_meaasge",res.response.declined_meaasge);
-    sessionStorage.setItem("declined_redirect_url",res.response.declined_redirect_url);
+    var declined_redirect_url=res.response.declined_redirect_url;
+    if (declined_redirect_url.indexOf("http://") == -1 && declined_redirect_url.indexOf("https://") == -1) {
+       declined_redirect_url="https://"+declined_redirect_url;
+    }
+    sessionStorage.setItem("declined_redirect_url",declined_redirect_url);
     sessionStorage.setItem("invalid_meaasge",res.response.invalid_meaasge);
-    sessionStorage.setItem("invalid_redirect_url",res.response.invalid_redirect_url);
+    var invalid_redirect_url=res.response.invalid_redirect_url;
+    if (invalid_redirect_url.indexOf("http://") == -1 && invalid_redirect_url.indexOf("https://") == -1) {
+       invalid_redirect_url="https://"+invalid_redirect_url;
+    }
+    sessionStorage.setItem("invalid_redirect_url",invalid_redirect_url);
     set_sdk_html();
 })
 .catch(error => {

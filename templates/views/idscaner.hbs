@@ -444,21 +444,20 @@
                      console.log('server_response',this.response);
                      var resp = JSON.parse(this.response);
                      if (this.status == "200") {
-
                          if (resp.status) {
                             if(resp.status=='Accepted'){
                                 verifypage.style.opacity = 0;
                                 successfullpage.style.display = "block";
                                 location.href = "#successfullpage";
                                 setTimeout(function(){ 
-                                    window.location.href=baseUrl;
+                                    window.location.href=success_redirect_url;
                                 }, 5000);
                             }else if(resp.status=='Decliend'){
                                 verifypage.style.opacity = 0;
                                 extrapage.style.display = "block";
                                 location.href = "#extrapage";
                                 setTimeout(function(){ 
-                                    window.location.href=baseUrl;
+                                    window.location.href=declined_redirect_url;
                                 }, 5000);
                             }else{
                                 window.location.href=baseUrl+"idscaner";
@@ -471,7 +470,6 @@
                                  selfiepage.style.display = "block";
                                  button_callback2();
                              }
-
                              if (resp.error.code == 9) {
                                  alert(resp.error.message);
                                  verifypage.style.display = "none";
