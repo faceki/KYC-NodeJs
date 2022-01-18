@@ -50,45 +50,91 @@ function set_sdk_html(){
 
     var kyc_items='';
     var item_number=1;
+
+    if(doc_type_one=='ID Card'){
+    var doc_one_front_icon='id_card_front.svg';
+    var doc_one_back_icon='id_card_back.svg';
+    }
+    if(doc_type_one=='Driving License'){
+    var doc_one_front_icon='driving_license_front.svg';
+    var doc_one_back_icon='driving_license_back.svg';
+    }
+    if(doc_type_one=='Passport'){
+    var doc_one_front_icon='passport_front.svg';
+    var doc_one_back_icon='passport_front.svg';
+    }
+    sessionStorage.setItem("doc_one_front_icon","white_"+doc_one_front_icon);
+    sessionStorage.setItem("doc_one_back_icon","white_"+doc_one_back_icon);
+
+    if(doc_type_two=='ID Card'){
+    var doc_two_front_icon='id_card_front.svg';
+    var doc_two_back_icon='id_card_back.svg';
+    }
+    if(doc_type_two=='Driving License'){
+    var doc_two_front_icon='driving_license_front.svg';
+    var doc_two_back_icon='driving_license_back.svg';
+    }
+    if(doc_type_two=='Passport'){
+    var doc_two_front_icon='passport_front.svg';
+    var doc_two_back_icon='passport_front.svg';
+    }
+    sessionStorage.setItem("doc_two_front_icon","white_"+doc_two_front_icon);
+    sessionStorage.setItem("doc_two_back_icon","white_"+doc_two_back_icon);
+
+    if(doc_type_three=='ID Card'){
+    var doc_three_front_icon='id_card_front.svg';
+    var doc_three_back_icon='id_card_back.svg';
+    }
+    if(doc_type_three=='Driving License'){
+    var doc_three_front_icon='driving_license_front.svg';
+    var doc_three_back_icon='driving_license_back.svg';
+    }
+    if(doc_type_three=='Passport'){
+    var doc_three_front_icon='passport_front.svg';
+    var doc_three_back_icon='passport_front.svg';
+    }
+    sessionStorage.setItem("doc_three_front_icon","white_"+doc_three_front_icon);
+    sessionStorage.setItem("doc_three_back_icon","white_"+doc_three_back_icon);
+
     if(number_of_doc==1){
         kyc_items=kyc_items+`<li class="faceki-card__item">
                                     <span class="faceki-card__number">`+item_number+`</span>
-                                   <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-front-dark.png" alt=""></div>
+                                   <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/`+doc_one_front_icon+`" alt=""></div>
                                     <span>Scan `+doc_type_one+` front side</span>
                              </li>`;
                              if(doc_type_one!='Passport'){
                              item_number++;
                              kyc_items=kyc_items+`<li class="faceki-card__item">
                                 <span class="faceki-card__number">`+item_number+`</span>
-                                <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-back-dark.png" alt=""></div>
+                                <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/`+doc_one_back_icon+`" alt=""></div>
                                 <span>Scan `+doc_type_one+` back side</span>
                              </li>`;
                              }              
     }else if(number_of_doc==2){
         kyc_items=kyc_items+`<li class="faceki-card__item">
                                     <span class="faceki-card__number">`+item_number+`</span>
-                                   <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-front-dark.png" alt=""></div>
+                                   <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/`+doc_one_front_icon+`" alt=""></div>
                                     <span>Scan `+doc_type_one+` front side</span>
                                 </li>`;
                                 if(doc_type_one!='Passport'){
                                 item_number++;
                                 kyc_items=kyc_items+`<li class="faceki-card__item">
                                     <span class="faceki-card__number">`+item_number+`</span>
-                                    <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-back-dark.png" alt=""></div>
+                                    <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/`+doc_one_back_icon+`" alt=""></div>
                                     <span>Scan `+doc_type_one+` back side</span>
                                 </li>`;
                                 }
                                 item_number++;
                                 kyc_items=kyc_items+`<li class="faceki-card__item">
                                     <span class="faceki-card__number">`+item_number+`</span>
-                                   <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-front-dark.png" alt=""></div>
+                                   <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/`+doc_two_front_icon+`" alt=""></div>
                                     <span>Scan `+doc_type_two+` front side</span>
                                 </li>`;
                                 if(doc_type_two!='Passport'){
                                 item_number++;
                                 kyc_items=kyc_items+`<li class="faceki-card__item">
                                     <span class="faceki-card__number">`+item_number+`</span>
-                                    <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-back-dark.png" alt=""></div>
+                                    <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/`+doc_two_back_icon+`" alt=""></div>
                                     <span>Scan `+doc_type_two+` back side</span>
                                 </li>`;
                                 }
@@ -96,42 +142,42 @@ function set_sdk_html(){
     }else if(number_of_doc==3){
         kyc_items=kyc_items+`<li class="faceki-card__item">
                                     <span class="faceki-card__number">`+item_number+`</span>
-                                   <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-front-dark.png" alt=""></div>
+                                   <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/`+doc_one_front_icon+`" alt=""></div>
                                     <span>Scan `+doc_type_one+` front side</span>
                                 </li>`;
                                 if(doc_type_one!='Passport'){
                                 item_number++;
                                 kyc_items=kyc_items+`<li class="faceki-card__item">
                                     <span class="faceki-card__number">`+item_number+`</span>
-                                    <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-back-dark.png" alt=""></div>
+                                    <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/`+doc_one_back_icon+`" alt=""></div>
                                     <span>Scan `+doc_type_one+` back side</span>
                                 </li>`;
                                 }
                                 item_number++;
                                 kyc_items=kyc_items+`<li class="faceki-card__item">
                                     <span class="faceki-card__number">`+item_number+`</span>
-                                   <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-front-dark.png" alt=""></div>
+                                   <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/`+doc_two_front_icon+`" alt=""></div>
                                     <span>Scan `+doc_type_two+` front side</span>
                                 </li>`;
                                 if(doc_type_two!='Passport'){
                                 item_number++;
                                 kyc_items=kyc_items+`<li class="faceki-card__item">
                                     <span class="faceki-card__number">`+item_number+`</span>
-                                    <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-back-dark.png" alt=""></div>
+                                    <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/`+doc_two_back_icon+`" alt=""></div>
                                     <span>Scan `+doc_type_two+` back side</span>
                                 </li>`;
                                 }
                                 item_number++;
                                 kyc_items=kyc_items+`<li class="faceki-card__item">
                                     <span class="faceki-card__number">`+item_number+`</span>
-                                   <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-front-dark.png" alt=""></div>
+                                   <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/`+doc_three_front_icon+`" alt=""></div>
                                     <span>Scan `+doc_type_three+` front side</span>
                                 </li>`;
                                 if(doc_type_three!='Passport'){
                                 item_number++;
                                 kyc_items=kyc_items+`<li class="faceki-card__item">
                                     <span class="faceki-card__number">`+item_number+`</span>
-                                    <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/id-back-dark.png" alt=""></div>
+                                    <div class="id-card-logo"><img class="faceki-card__img" src="/assets/img/user-info/`+doc_three_back_icon+`" alt=""></div>
                                     <span>Scan `+doc_type_three+` back side</span>
                                 </li>`;
                                 }
