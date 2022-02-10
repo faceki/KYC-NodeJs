@@ -423,6 +423,15 @@
 
              data_auth.append('selfie_image', selfieImg);
 
+             const today = new Date();
+             const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+             const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+             const dateTime = date+' '+time;
+
+             data_auth.append('kyc_datetime', dateTime);
+             data_auth.append('ip_address', sessionStorage.getItem("ipAddress"));
+             data_auth.append('location', sessionStorage.getItem("location"));
+
              const req = new XMLHttpRequest();
 
              let auth_token = sessionStorage.getItem('auth_token');

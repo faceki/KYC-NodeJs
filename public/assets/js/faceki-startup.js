@@ -35,6 +35,15 @@ fetch(API_URL)
        invalid_redirect_url="https://"+invalid_redirect_url;
     }
     sessionStorage.setItem("invalid_redirect_url",invalid_redirect_url);
+
+    fetch('https://api.db-ip.com/v2/free/self')
+    .then(response => {
+        return response.json()
+    }).then(function(res){
+       sessionStorage.setItem("ipAddress",res.ipAddress);
+       sessionStorage.setItem("location",res.city+','+res.stateProv+','+res.countryName);
+    })
+
     set_sdk_html();
 })
 .catch(error => {
