@@ -38,7 +38,7 @@
     "node-uuid": "^1.4.8",
     "request": "^2.88.2",
     "sharp": "^0.25.2",
-    "twilio": "^3.54.1",
+    "twilio": "^4.0.0",
     "validator": "^13.0.0",
     "ws": "^0.7.2",
     "xmlhttprequest": "^1.8.0"
