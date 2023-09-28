@@ -37,7 +37,7 @@
     "node-rekognition": "^0.4.0",
     "node-uuid": "^1.4.8",
     "request": "^2.88.2",
-    "sharp": "^0.25.2",
+    "sharp": "^0.32.6",
     "twilio": "^3.54.1",
     "validator": "^13.0.0",
     "ws": "^0.7.2",
